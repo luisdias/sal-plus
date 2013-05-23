@@ -54,7 +54,7 @@
         </div>
     </div>    
     
-    <div id="footer">© <a href="http://www.smartbyte.com.br" target="blank">Smartbyte</a> 2011.</div>        
+    <div id="footer">© <a href="http://www.smartbyte.com.br" target="blank">Smartbyte</a> 2013.</div>        
 <?php echo $this->element('sql_dump'); ?>      
 </div>
      
