@@ -1,0 +1,44 @@
+<?php $reportFields=array (
+  'Tipoocorrencia' => 
+  array (
+    'title' => 
+    array (
+      'Add' => '1',
+      'Position' => '1',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Ocorrencia' => 
+  array (
+    'dt_ocorrencia' => 
+    array (
+      'Add' => '1',
+      'Position' => '2',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'texto_ocorrencia' => 
+    array (
+      'Add' => '1',
+      'Position' => '3',
+      'Type' => 'text',
+      'Length' => '10',
+    ),
+  ),
+  'Report' => 
+  array (
+    'Logical' => 'AND',
+    'OrderDirection' => 'ASC',
+    'ReportName' => 'Ocorrencias por tipo',
+    'Style' => 'executive',
+    'Output' => 'html',
+    'ShowRecordCounter' => '1',
+    'ShowNoRelated' => '0',
+    'SaveReport' => '1',
+    'OneToManyOption' => 'Ocorrencia',
+  ),
+); ?>

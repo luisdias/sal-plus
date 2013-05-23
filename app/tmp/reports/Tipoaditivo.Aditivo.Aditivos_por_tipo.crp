@@ -1,0 +1,107 @@
+<?php $reportFields=array (
+  'Tipoaditivo' => 
+  array (
+    'title' => 
+    array (
+      'Add' => '1',
+      'Position' => '1',
+      'Type' => 'string',
+      'Length' => '25',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Aditivo' => 
+  array (
+    'numero' => 
+    array (
+      'Add' => '1',
+      'Position' => '2',
+      'Type' => 'string',
+      'Length' => '15',
+    ),
+    'numero_processo' => 
+    array (
+      'Add' => '1',
+      'Position' => '3',
+      'Type' => 'string',
+      'Length' => '15',
+    ),
+    'ano_processo' => 
+    array (
+      'Add' => '1',
+      'Position' => '4',
+      'Type' => 'string',
+      'Length' => '4',
+    ),
+    'dt_assinatura' => 
+    array (
+      'Add' => '1',
+      'Position' => '5',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'dt_publicacao' => 
+    array (
+      'Add' => '1',
+      'Position' => '6',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'veiculo_publicacao' => 
+    array (
+      'Add' => '1',
+      'Position' => '7',
+      'Type' => 'string',
+      'Length' => '50',
+    ),
+    'texto_aditivo' => 
+    array (
+      'Add' => '1',
+      'Position' => '8',
+      'Type' => 'text',
+      'Length' => '10',
+    ),
+    'documento' => 
+    array (
+      'Add' => '1',
+      'Position' => '9',
+      'Type' => 'string',
+      'Length' => '255',
+    ),
+    'valor_global' => 
+    array (
+      'Add' => '1',
+      'Position' => '10',
+      'Type' => 'float',
+      'Length' => '12,2',
+    ),
+    'valor_parcela' => 
+    array (
+      'Add' => '1',
+      'Position' => '11',
+      'Type' => 'float',
+      'Length' => '12,2',
+    ),
+    'prazo' => 
+    array (
+      'Add' => '1',
+      'Position' => '12',
+      'Type' => 'integer',
+      'Length' => '11',
+    ),
+  ),
+  'Report' => 
+  array (
+    'Logical' => 'AND',
+    'OrderDirection' => 'ASC',
+    'ReportName' => 'Aditivos por tipo',
+    'Style' => 'executive',
+    'Output' => 'html',
+    'ShowRecordCounter' => '1',
+    'ShowNoRelated' => '0',
+    'SaveReport' => '1',
+    'OneToManyOption' => 'Aditivo',
+  ),
+); ?>

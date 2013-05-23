@@ -1,0 +1,216 @@
+<?php
+/**
+ * Application level Controller
+ *
+ * This file is application-wide controller file. You can put all
+ * application-wide controller-related methods here.
+ *
+ * PHP versions 4 and 5
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       cake
+ * @subpackage    cake.app
+ * @since         CakePHP(tm) v 0.2.9
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
+
+/**
+ * Application Controller
+ *
+ * Add your application-wide methods in the class below, your controllers
+ * will inherit them.
+ *
+ * @package       cake
+ * @subpackage    cake.app
+ */
+ 
+ class AppController extends Controller {
+	var $name = '';
+	//var $singular_class_name = '';
+	//var $plural_class_name = '';
+	var $fk = '';
+	//var $helpers = array('Html', 'Form');
+	//var $components = array( 'Auth' );
+	function beforeFilter() {
+/*	       $this->Auth->autoRedirect = false;
+	       $this->Auth->userModel = 'Usuario';
+	       $this->Auth->fields = array('username' => 'username', 'password' => 'password');
+	       $this->Auth->loginError = "Login ou senha inválida";
+	       $this->Auth->authError = "Acesso negado. Informe login e senha por favor.";
+	       $this->Auth->loginAction = array('controller'=>'usuarios','action'=>'login');
+	       $this->Auth->loginRedirect = array('controller'=> 'pages', 'action' => 'home');
+	       $this->Auth->logoutRedirect = array('controller'=>'usuarios','action' => 'login','admin'=>0);
+*/	       
+	}
+	function index() {
+	       if ($this->{$this->modelClass}->Behaviors->enabled('MagicLock')) {
+		       $this->{$this->modelClass}->Behaviors->disable('MagicLock');
+	       }
+	       $this->{$this->modelClass}->recursive = 0;
+	       $this->set(strtolower($this->name), $this->paginate());
+	}
+	function view($id = null) {
+	       if (!$id) {
+		       $this->Session->setFlash(__($this->name . ' Inválido(a).', true));
+		       $this->redirect(array('controller'=>$this->name,'action'=>'index'));
+	       }
+	       $this->set(Inflector::singularize($this->name),$this->{$this->modelClass}->read(null, $id));
+	}
+	function add() {
+	       if ($this->{$this->modelClass}->Behaviors->enabled('MagicLock')) {
+		       $this->{$this->modelClass}->Behaviors->disable('MagicLock');
+	       }
+	       $this->form();
+	       $this->render('form');
+	}
+	function edit($id = null) {
+	       if (!$id && empty($this->data)) {
+		       $this->_flash(__($this->name . ' Inválido(a).', true),'error');
+		       $this->redirect(array('controller'=>$this->name,'action'=>'index'));
+	       }
+	       $this->form($id);
+	       $this->render('form');
+	}
+	function form($id = null) {
+	       if (!empty($this->data)) {
+		       $this->{$this->modelClass}->create();
+		       if ($this->{$this->modelClass}->save($this->data)) {
+			       $this->Session->setFlash(__($this->name . ' gravado(a) com sucesso', true));
+			       $this->redirect(array('controller'=>$this->name,'action'=>'index'));
+		       } else {
+			       $this->Session->setFlash(__($this->name . ' não pode ser gravado(a). Por favor, tente novamente.', true));
+		       }
+	       } else {
+		       if ( $this->params['action'] == 'add' ) {
+			       // existe o parametro fk_id sendo passado ?
+			       if (!empty($this->passedArgs) || isset($this->passedArgs['fk_id'])) {
+				       $fk_id = $this->passedArgs['fk_id'];
+				       $this->data[ucfirst(Inflector::singularize($this->name))][$this->fk] = $fk_id;
+			       }
+		       }
+	       }
+	       if (empty($this->data)) {
+		       $this->data = $this->{$this->modelClass}->read(null, $id);
+	       }
+	       $this->set_related();
+	}
+	function delete($id = null) {
+	       if (!$id) {
+		       $this->Session->setFlash(__($this->name . ' Inválido(a).', true));
+		       $this->redirect(array('controller'=>$this->name,'action'=>'index'));
+	       }
+	       if ($this->{$this->modelClass}->del($id)) {
+		       $this->Session->setFlash(__($this->name . '  excluído(a)', true));
+		       $this->redirect(array('controller'=>$this->name,'action'=>'index'));
+	       } else {
+		       // só funciona com debug=0 no core.php senao da erro de "Cannot modify header information"
+		       $this->Session->setFlash(__("Existem registros relacionados. Não posso excluir",true));
+		       $this->redirect(array('controller'=>$this->name,'action'=>'index'));
+	       }
+	}
+	function admin_index() {
+	       if ( $this->Auth->user('role') != 'admin' ) {
+		       $this->Session->setFlash(__('Acesso Negado', true));
+		       $this->redirect(array('controller'=>'pages','action'=>'display','home','admin'=>0));
+	       }
+	       if ($this->{$this->modelClass}->Behaviors->enabled('MagicLock')) {
+		       $this->{$this->modelClass}->Behaviors->disable('MagicLock');
+	       }
+	       $this->{$this->modelClass}->recursive = 0;
+	       $this->set($this->plural_class_name, $this->paginate());
+	}
+	function admin_view($id = null) {
+	       if ( $this->Auth->user('role') != 'admin' ) {
+		       $this->Session->setFlash(__('Acesso Negado', true));
+		       $this->redirect(array('controller'=>'pages','action'=>'display','home','admin'=>0));
+	       }
+	       if (!$id) {
+		       $this->Session->setFlash(__($this->name . ' Inválido(a).', true));
+		       $this->redirect(array('controller'=>$this->name,'action'=>'admin_index'));
+	       }
+	       $this->set($this->singular_class_name, $this->{$this->modelClass}->read(null, $id));
+	}
+	function admin_add() {
+	       if ( $this->Auth->user('role') != 'admin' ) {
+		       $this->Session->setFlash(__('Acesso Negado', true));
+		       $this->redirect(array('controller'=>'pages','action'=>'display','home','admin'=>0));
+	       }
+	       if ($this->{$this->modelClass}->Behaviors->enabled('MagicLock')) {
+		       $this->{$this->modelClass}->Behaviors->disable('MagicLock');
+	       }
+	       $this->form();
+	       $this->render('admin_form');
+	}
+	function admin_edit($id = null) {
+	       if ( $this->Auth->user('role') != 'admin' ) {
+		       $this->Session->setFlash(__('Acesso Negado', true));
+		       $this->redirect(array('controller'=>'pages','action'=>'display','home','admin'=>0));
+	       }
+	       if (!$id && empty($this->data)) {
+		       $this->_flash(__($this->name . ' Inválido(a).', true),'error');
+		       $this->redirect(array('controller'=>$this->name,'action'=>'admin_index'));
+	       }
+	       $this->form($id);
+	       $this->render('admin_form');
+	}
+	function admin_form($id = null) {
+	       if ( $this->Auth->user('role') != 'admin' ) {
+		       $this->Session->setFlash(__('Acesso Negado', true));
+		       $this->redirect(array('controller'=>'pages','action'=>'display','home','admin'=>0));
+	       }
+	       if (!empty($this->data)) {
+		       $this->{$this->modelClass}->create();
+		       if ($this->{$this->modelClass}->save($this->data)) {
+			       $this->Session->setFlash(__($this->name . ' gravado(a) com sucesso', true));
+			       $this->redirect(array('controller'=>$this->name,'action'=>'admin_index'));
+		       } else {
+			       $this->Session->setFlash(__($this->name . ' não pode ser gravado(a). Por favor, tente novamente.', true));
+		       }
+	       } else {
+		       if ( $this->params['action'] == 'add' ) {
+			       // existe o parametro fk_id sendo passado ?
+			       if (!empty($this->passedArgs) || isset($this->passedArgs['fk_id'])) {
+				       $fk_id = $this->passedArgs['fk_id'];
+				       $this->data[ucfirst($this->singular_class_name)][$this->fk] = $fk_id;
+			       }
+		       }
+	       }
+	       if (empty($this->data)) {
+		       $this->data = $this->{$this->modelClass}->read(null, $id);
+	       }
+	       $this->set_related();
+	}
+	function admin_delete($id = null) {
+	       if ( $this->Auth->user('role') != 'admin' ) {
+		       $this->Session->setFlash(__('Acesso Negado', true));
+		       $this->redirect(array('controller'=>'pages','action'=>'display','home','admin'=>0));
+	       }
+	       if (!$id) {
+		       $this->Session->setFlash(__($this->name . ' Inválido(a).', true));
+		       $this->redirect(array('controller'=>$this->name,'action'=>'admin_index'));
+	       }
+	       if ($this->{$this->modelClass}->del($id)) {
+		       $this->Session->setFlash(__($this->name . '  excluído(a)', true));
+		       $this->redirect(array('controller'=>$this->name,'action'=>'admin_index'));
+	       } else {
+		       // só funciona com debug=0 no core.php senao da erro de "Cannot modify header information"
+		       $this->Session->setFlash(__("Existem registros relacionados. Não posso excluir",true));
+		       $this->redirect(array('controller'=>$this->name,'action'=>'admin_index'));
+	       }
+	}
+	function set_related() {
+	}
+	function beforeRender() {
+	       // Make Session variables available to view
+	       $this->set('user_id', $this->Session->read('user_id'));
+	       $this->set('user_name', $this->Session->read('user_name'));
+	       $this->set('user_role', $this->Session->read('user_role'));
+	}
+ }

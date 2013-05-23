@@ -1,0 +1,227 @@
+<?php $reportFields=array (
+  'Licitacao' => 
+  array (
+    'status' => 
+    array (
+      'Add' => '1',
+      'Position' => '1',
+      'Type' => 'string',
+      'Length' => '12',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'cl' => 
+    array (
+      'Add' => '1',
+      'Position' => '2',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'num_edital' => 
+    array (
+      'Add' => '1',
+      'Position' => '3',
+      'Type' => 'string',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'indice' => 
+    array (
+      'Add' => '1',
+      'Position' => '4',
+      'Type' => 'string',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'local' => 
+    array (
+      'Add' => '1',
+      'Position' => '5',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'objeto' => 
+    array (
+      'Add' => '1',
+      'Position' => '6',
+      'Type' => 'text',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'historico' => 
+    array (
+      'Add' => '1',
+      'Position' => '7',
+      'Type' => 'text',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'dt_abertura' => 
+    array (
+      'Add' => '1',
+      'Position' => '8',
+      'Type' => 'date',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'regime' => 
+    array (
+      'Add' => '1',
+      'Position' => '9',
+      'Type' => 'string',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'vlr_lic' => 
+    array (
+      'Add' => '1',
+      'Position' => '10',
+      'Type' => 'float',
+      'Length' => '10,2',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Modalidade' => 
+  array (
+    'title' => 
+    array (
+      'Add' => '1',
+      'Position' => '11',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Tipolicitacao' => 
+  array (
+    'title' => 
+    array (
+      'Add' => '1',
+      'Position' => '12',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Usuario' => 
+  array (
+    'name' => 
+    array (
+      'Add' => '1',
+      'Position' => '13',
+      'Type' => 'string',
+      'Length' => '30',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'login' => 
+    array (
+      'Add' => '1',
+      'Position' => '14',
+      'Type' => 'string',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'senha' => '105e4107fc2b5e7d0cd34382bd0d2bc28b645ab3',
+    'perfil' => 
+    array (
+      'Add' => '1',
+      'Position' => '16',
+      'Type' => 'string',
+      'Length' => '5',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Contratante' => 
+  array (
+    'name' => 
+    array (
+      'Add' => '1',
+      'Position' => '17',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'tipo' => 
+    array (
+      'Add' => '1',
+      'Position' => '18',
+      'Type' => 'string',
+      'Length' => '7',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'categoria' => 
+    array (
+      'Add' => '1',
+      'Position' => '19',
+      'Type' => 'string',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Evento' => 
+  array (
+    'dt_eve' => 
+    array (
+      'Add' => '1',
+      'Position' => '20',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'texto_eve' => 
+    array (
+      'Add' => '1',
+      'Position' => '21',
+      'Type' => 'text',
+      'Length' => '10',
+    ),
+  ),
+  'Report' => 
+  array (
+    'Logical' => 'AND',
+    'OrderDirection' => 'ASC',
+    'ReportName' => 'Licitações e Eventos',
+    'Style' => 'executive',
+    'Output' => 'html',
+    'ShowRecordCounter' => '1',
+    'ShowNoRelated' => '0',
+    'SaveReport' => '1',
+    'OneToManyOption' => 'Evento',
+  ),
+); ?>

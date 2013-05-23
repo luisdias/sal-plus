@@ -1,0 +1,170 @@
+<?php $reportFields=array (
+  'Garantia' => 
+  array (
+    'title' => 
+    array (
+      'Add' => '1',
+      'Position' => '1',
+      'Type' => 'string',
+      'Length' => '20',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Contrato' => 
+  array (
+    'numero' => 
+    array (
+      'Add' => '1',
+      'Position' => '2',
+      'Type' => 'string',
+      'Length' => '15',
+    ),
+    'objeto' => 
+    array (
+      'Add' => '1',
+      'Position' => '3',
+      'Type' => 'text',
+      'Length' => '10',
+    ),
+    'regime_execucao' => 
+    array (
+      'Add' => '1',
+      'Position' => '4',
+      'Type' => 'text',
+      'Length' => '10',
+    ),
+    'valor_global' => 
+    array (
+      'Add' => '1',
+      'Position' => '5',
+      'Type' => 'float',
+      'Length' => '12,2',
+    ),
+    'valor_parcela' => 
+    array (
+      'Add' => '1',
+      'Position' => '6',
+      'Type' => 'float',
+      'Length' => '12,2',
+    ),
+    'condicoes_pagto' => 
+    array (
+      'Add' => '1',
+      'Position' => '7',
+      'Type' => 'text',
+      'Length' => '10',
+    ),
+    'criterios' => 
+    array (
+      'Add' => '1',
+      'Position' => '8',
+      'Type' => 'text',
+      'Length' => '10',
+    ),
+    'dt_base' => 
+    array (
+      'Add' => '1',
+      'Position' => '9',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'dt_inicio' => 
+    array (
+      'Add' => '1',
+      'Position' => '10',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'prazo_vigencia' => 
+    array (
+      'Add' => '1',
+      'Position' => '11',
+      'Type' => 'integer',
+      'Length' => '11',
+    ),
+    'dt_conclusao' => 
+    array (
+      'Add' => '1',
+      'Position' => '12',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'dt_assinatura' => 
+    array (
+      'Add' => '1',
+      'Position' => '13',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'dt_publicacao' => 
+    array (
+      'Add' => '1',
+      'Position' => '14',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'veiculo_publicacao' => 
+    array (
+      'Add' => '1',
+      'Position' => '15',
+      'Type' => 'string',
+      'Length' => '50',
+    ),
+    'atualizacao_monetaria' => 
+    array (
+      'Add' => '1',
+      'Position' => '16',
+      'Type' => 'integer',
+      'Length' => '11',
+    ),
+    'percentual_garantia' => 
+    array (
+      'Add' => '1',
+      'Position' => '17',
+      'Type' => 'float',
+      'Length' => '12,2',
+    ),
+    'numero_processo' => 
+    array (
+      'Add' => '1',
+      'Position' => '18',
+      'Type' => 'string',
+      'Length' => '15',
+    ),
+    'ano_processo' => 
+    array (
+      'Add' => '1',
+      'Position' => '19',
+      'Type' => 'string',
+      'Length' => '4',
+    ),
+    'documento' => 
+    array (
+      'Add' => '1',
+      'Position' => '20',
+      'Type' => 'string',
+      'Length' => '255',
+    ),
+    'numero_empenho' => 
+    array (
+      'Add' => '1',
+      'Position' => '21',
+      'Type' => 'string',
+      'Length' => '15',
+    ),
+  ),
+  'Report' => 
+  array (
+    'Logical' => 'AND',
+    'OrderDirection' => 'ASC',
+    'ReportName' => 'Contratos por tipo de garantia',
+    'Style' => 'executive',
+    'Output' => 'html',
+    'ShowRecordCounter' => '1',
+    'ShowNoRelated' => '0',
+    'SaveReport' => '1',
+    'OneToManyOption' => 'Contrato',
+  ),
+); ?>

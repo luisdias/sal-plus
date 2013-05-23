@@ -1,0 +1,418 @@
+<?php $reportFields=array (
+  'Contrato' => 
+  array (
+    'numero' => 
+    array (
+      'Add' => '1',
+      'Position' => '1',
+      'Type' => 'string',
+      'Length' => '15',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'objeto' => 
+    array (
+      'Add' => '1',
+      'Position' => '2',
+      'Type' => 'text',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'regime_execucao' => 
+    array (
+      'Add' => '1',
+      'Position' => '3',
+      'Type' => 'text',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'valor_global' => 
+    array (
+      'Add' => '1',
+      'Position' => '4',
+      'Type' => 'float',
+      'Length' => '12,2',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'valor_parcela' => 
+    array (
+      'Add' => '1',
+      'Position' => '5',
+      'Type' => 'float',
+      'Length' => '12,2',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'condicoes_pagto' => 
+    array (
+      'Add' => '1',
+      'Position' => '6',
+      'Type' => 'text',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'criterios' => 
+    array (
+      'Add' => '1',
+      'Position' => '7',
+      'Type' => 'text',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'dt_base' => 
+    array (
+      'Add' => '1',
+      'Position' => '8',
+      'Type' => 'date',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'dt_inicio' => 
+    array (
+      'Add' => '1',
+      'Position' => '9',
+      'Type' => 'date',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'prazo_vigencia' => 
+    array (
+      'Add' => '1',
+      'Position' => '10',
+      'Type' => 'integer',
+      'Length' => '11',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'dt_conclusao' => 
+    array (
+      'Add' => '1',
+      'Position' => '11',
+      'Type' => 'date',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'dt_assinatura' => 
+    array (
+      'Add' => '1',
+      'Position' => '12',
+      'Type' => 'date',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'dt_publicacao' => 
+    array (
+      'Add' => '1',
+      'Position' => '13',
+      'Type' => 'date',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'veiculo_publicacao' => 
+    array (
+      'Add' => '1',
+      'Position' => '14',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'atualizacao_monetaria' => 
+    array (
+      'Add' => '1',
+      'Position' => '15',
+      'Type' => 'integer',
+      'Length' => '11',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'percentual_garantia' => 
+    array (
+      'Add' => '1',
+      'Position' => '16',
+      'Type' => 'float',
+      'Length' => '12,2',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'numero_processo' => 
+    array (
+      'Add' => '1',
+      'Position' => '17',
+      'Type' => 'string',
+      'Length' => '15',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'ano_processo' => 
+    array (
+      'Add' => '1',
+      'Position' => '18',
+      'Type' => 'string',
+      'Length' => '4',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'documento' => 
+    array (
+      'Add' => '1',
+      'Position' => '19',
+      'Type' => 'string',
+      'Length' => '255',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'numero_empenho' => 
+    array (
+      'Add' => '1',
+      'Position' => '20',
+      'Type' => 'string',
+      'Length' => '15',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Situacao' => 
+  array (
+    'title' => 
+    array (
+      'Add' => '1',
+      'Position' => '21',
+      'Type' => 'string',
+      'Length' => '20',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Reajuste' => 
+  array (
+    'title' => 
+    array (
+      'Add' => '1',
+      'Position' => '22',
+      'Type' => 'string',
+      'Length' => '20',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Garantia' => 
+  array (
+    'title' => 
+    array (
+      'Add' => '1',
+      'Position' => '23',
+      'Type' => 'string',
+      'Length' => '20',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Licitacao' => 
+  array (
+    'status' => 
+    array (
+      'Add' => '1',
+      'Position' => '24',
+      'Type' => 'string',
+      'Length' => '12',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'cl' => 
+    array (
+      'Add' => '1',
+      'Position' => '25',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'num_edital' => 
+    array (
+      'Add' => '1',
+      'Position' => '26',
+      'Type' => 'string',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'indice' => 
+    array (
+      'Add' => '1',
+      'Position' => '27',
+      'Type' => 'string',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'local' => 
+    array (
+      'Add' => '1',
+      'Position' => '28',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'objeto' => 
+    array (
+      'Add' => '1',
+      'Position' => '29',
+      'Type' => 'text',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'historico' => 
+    array (
+      'Add' => '1',
+      'Position' => '30',
+      'Type' => 'text',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'dt_abertura' => 
+    array (
+      'Add' => '1',
+      'Position' => '31',
+      'Type' => 'date',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'regime' => 
+    array (
+      'Add' => '1',
+      'Position' => '32',
+      'Type' => 'string',
+      'Length' => '10',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'vlr_lic' => 
+    array (
+      'Add' => '1',
+      'Position' => '33',
+      'Type' => 'float',
+      'Length' => '10,2',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Recebimento' => 
+  array (
+    'dt_emissao' => 
+    array (
+      'Add' => '1',
+      'Position' => '34',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'dt_vencto' => 
+    array (
+      'Add' => '1',
+      'Position' => '35',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'dt_pagto' => 
+    array (
+      'Add' => '1',
+      'Position' => '36',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'numero_documento' => 
+    array (
+      'Add' => '1',
+      'Position' => '37',
+      'Type' => 'string',
+      'Length' => '25',
+    ),
+    'valor_parcela' => 
+    array (
+      'Add' => '1',
+      'Position' => '38',
+      'Type' => 'float',
+      'Length' => '10',
+    ),
+    'valor_pago' => 
+    array (
+      'Add' => '1',
+      'Position' => '39',
+      'Type' => 'float',
+      'Length' => '10',
+    ),
+    'centro_de_custo' => 
+    array (
+      'Add' => '1',
+      'Position' => '40',
+      'Type' => 'string',
+      'Length' => '25',
+    ),
+    'codigo_historico' => 
+    array (
+      'Add' => '1',
+      'Position' => '41',
+      'Type' => 'string',
+      'Length' => '25',
+    ),
+  ),
+  'Report' => 
+  array (
+    'Logical' => 'AND',
+    'OrderDirection' => 'ASC',
+    'ReportName' => 'Contratos e Recebimentos',
+    'Style' => 'executive',
+    'Output' => 'html',
+    'ShowRecordCounter' => '1',
+    'ShowNoRelated' => '0',
+    'SaveReport' => '1',
+    'OneToManyOption' => 'Recebimento',
+  ),
+); ?>

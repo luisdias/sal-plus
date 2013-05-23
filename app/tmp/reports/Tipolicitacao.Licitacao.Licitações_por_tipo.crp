@@ -1,0 +1,100 @@
+<?php $reportFields=array (
+  'Tipolicitacao' => 
+  array (
+    'title' => 
+    array (
+      'Add' => '1',
+      'Position' => '1',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Licitacao' => 
+  array (
+    'status' => 
+    array (
+      'Add' => '1',
+      'Position' => '2',
+      'Type' => 'string',
+      'Length' => '12',
+    ),
+    'cl' => 
+    array (
+      'Add' => '1',
+      'Position' => '3',
+      'Type' => 'string',
+      'Length' => '50',
+    ),
+    'num_edital' => 
+    array (
+      'Add' => '1',
+      'Position' => '4',
+      'Type' => 'string',
+      'Length' => '10',
+    ),
+    'indice' => 
+    array (
+      'Add' => '1',
+      'Position' => '5',
+      'Type' => 'string',
+      'Length' => '10',
+    ),
+    'local' => 
+    array (
+      'Add' => '1',
+      'Position' => '6',
+      'Type' => 'string',
+      'Length' => '50',
+    ),
+    'objeto' => 
+    array (
+      'Add' => '1',
+      'Position' => '7',
+      'Type' => 'text',
+      'Length' => '10',
+    ),
+    'historico' => 
+    array (
+      'Add' => '1',
+      'Position' => '8',
+      'Type' => 'text',
+      'Length' => '10',
+    ),
+    'dt_abertura' => 
+    array (
+      'Add' => '1',
+      'Position' => '9',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'regime' => 
+    array (
+      'Add' => '1',
+      'Position' => '10',
+      'Type' => 'string',
+      'Length' => '10',
+    ),
+    'vlr_lic' => 
+    array (
+      'Add' => '1',
+      'Position' => '11',
+      'Type' => 'float',
+      'Length' => '10,2',
+    ),
+  ),
+  'Report' => 
+  array (
+    'Logical' => 'AND',
+    'OrderDirection' => 'ASC',
+    'ReportName' => 'Licitações por tipo',
+    'Style' => 'executive',
+    'Output' => 'html',
+    'ShowRecordCounter' => '1',
+    'ShowNoRelated' => '0',
+    'SaveReport' => '1',
+    'OneToManyOption' => 'Licitacao',
+  ),
+); ?>

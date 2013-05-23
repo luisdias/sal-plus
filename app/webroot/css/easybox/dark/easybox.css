@@ -1,0 +1,213 @@
+/*
+	Easybox v1.3 - Lightweight easy to use lightbox clone for jQuery
+	Based on Slimbox2 by Christophe Beyls <http://www.digitalia.be>
+
+	Copyright (C) 2011 by Vincent Wochnik
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
+*/
+
+/*
+	Overlay
+*/
+#easyOverlay {
+	position: fixed;
+	z-index: 9998;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	cursor: pointer;
+}
+
+/*
+	Main window
+*/
+#easyCenter {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 9999;
+	overflow: hidden;
+	background: #202024;
+	border-radius: 4px;
+	border: 1px solid #fff;
+}
+
+/*
+	Loading class
+*/
+#easyLoadingIndicator {
+	position: relative;
+	left: 50%; top: 50%;
+	width: 32px;
+	height: 32px;
+	margin-left: -16px;
+	margin-top: -16px;
+	background: url(loading.gif) no-repeat;
+}
+
+
+#easyContainer {
+	overflow: hidden;
+}
+
+/*
+	Error class
+*/
+#easyContainer.error {
+	background: url(error.png) no-repeat center;
+}
+
+/*
+	Resource container and Label/Number/Buttons container
+	Border replaces padding
+*/
+#easyContainer, #easyBottom {
+	padding: 10px;
+	color: #fff;
+}
+
+#easyBottom {
+	padding-top: 0;
+}
+
+/*
+	Disable borders
+*/
+#easyContainer img, #easyContainer iframe {
+	border: 0;
+	}
+
+/*
+	Bottom settings
+*/
+#easyBottom {
+	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+	text-align: left;
+	border-top: none;
+}
+
+/*
+	Close button
+*/
+#easyCloseLink {
+	display: block;
+	float: right;
+	width: 20px;
+	height: 20px;
+	background: transparent url(closebtn.png) no-repeat center;
+	margin: 0 0 0 10px;
+	outline: none;
+}
+
+/*
+	Next and previous button container
+*/
+#easyNavigation {
+	float: left;
+	width: 38px;
+	height: 20px;
+	margin: 0 10px 0 0;
+}
+
+/*
+	Previous button
+*/
+#easyPrevLink {
+	display: block;
+	float: left;
+	width: 18px;
+	height: 20px;
+	background: transparent url(prevbtn.png) no-repeat center;
+	outline: none;
+}
+
+/*
+	Next button
+*/
+#easyNextLink {
+	display: block;
+	margin: 0 0 0 20px;
+	width: 18px;
+	height: 20px;
+	background: transparent url(nextbtn.png) no-repeat center;
+	outline: none;
+}
+
+#easyPrevLink.disabled, #easyNextLink.disabled {
+	visibility: hidden;
+}
+
+/*
+	Slideshow button
+*/
+#easySlideLink {
+	display: block;
+	float: right;
+	width: 20px;
+	height: 20px;
+	background: transparent url(slidebtn.png) no-repeat center;
+	margin: 0 0 0 10px;
+	outline: none;
+}
+
+/*
+	Disabled slideshow button
+*/
+#easySlideLink.disabled {
+	background: transparent url(noslidebtn.png) no-repeat center;
+}
+
+/*
+	Caption and number container
+*/
+#easyCaption, #easyNumber {
+	display: block;
+	margin-right: 60px;
+}
+
+/*
+	Caption and number moved right when navigation arrows are present
+*/
+#easyCaption.nav, #easyNumber.nav {
+	margin-left: 48px;
+}
+
+/*
+	Caption container
+*/
+#easyCaption {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 16px;
+	padding-top: 2px;
+}
+
+/*
+	Number container
+*/
+#easyNumber {
+	font-size: 10px;
+	line-height: 10px;
+	height: 10px;
+	padding: 4px 0 6px;
+}
+
