@@ -79,7 +79,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'salteste',
+		'database' => 'sal',
                 'encoding' => 'utf8'
 	);
 
