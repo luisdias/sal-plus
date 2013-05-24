@@ -45,21 +45,17 @@
 **Para usuários que NÃO utilizam a versão anterior do SAL**  
 
 * Descompactar o sistema  
-
 Descompacte o arquivo na pasta de documentos de seu servidor web  
 
 * Criar o banco de dados  
-
 Use o arquivo salplus-database.sql para criar o banco de dados e incluir dados de exemplo  
 
 * Configurações do banco de dados  
-
 Altere o arquivo app/config/database.php indicando o host, login e password do banco de dados.  
 
 **Para usuários que já utilizam a versão anterior do SAL ( até v1.1.1 ) e pretendem fazer o UPGRADE para o SAL PLUS**  
 
 * Descompactar o sistema  
-
 Renomeie a pasta atual do aplicativo SAL ( por exemplo: de sal para saltemp )  
 Descompacte o arquivo na pasta de documentos de seu servidor web 
 
