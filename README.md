@@ -59,7 +59,7 @@ Altere o arquivo app/config/database.php indicando o host, login e password do b
 Renomeie a pasta atual do aplicativo SAL ( por exemplo: de sal para saltemp )  
 Descompacte o arquivo na pasta de documentos de seu servidor web 
 
-* Criar o banco de dados  
+* Atualizar o banco de dados  
 Realize o BACKUP do seu banco de dados atual  
 Em seguida utilize o arquivo salplus-database-update.sql para atualização  
 
