@@ -42,7 +42,7 @@
 
 ## Instalação  
 
-# Para usuários que NÃO utilizam a versão anterior do SAL  
+**Para usuários que NÃO utilizam a versão anterior do SAL**  
 
 * Descompactar o sistema  
 
@@ -56,9 +56,7 @@ Use o arquivo salplus-database.sql para criar o banco de dados e incluir dados d
 
 Altere o arquivo app/config/database.php indicando o host, login e password do banco de dados.  
 
-Para quem utiliza a versão anterior do SAL ( até v1.1.1 )  
-
-# Para usuários que já utilizam a versão anterior do SAL ( até v1.1.1 ) e pretendem fazer o UPGRADE para o SAL PLUS  
+**Para usuários que já utilizam a versão anterior do SAL ( até v1.1.1 ) e pretendem fazer o UPGRADE para o SAL PLUS**  
 
 * Descompactar o sistema  
 
