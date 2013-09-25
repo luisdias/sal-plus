@@ -86,10 +86,11 @@
 	</dl>
 </div>
 <br/>
+
 <?php echo $this->element('eventos',array('currentModel' => $licitacao)); ?>
 
 <?php echo $this->element('lotes',array('currentModel' => $licitacao)); ?>
 
-<?php echo $this->element('empresas',array('currentModel' => $licitacao)); ?>
+<?php echo $this->element('resultados',array('currentModel' => $licitacao,'empresas' => $empresas)); ?>
 
 <!-- SALPLUS | Copyright: 2013 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->
