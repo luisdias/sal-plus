@@ -25,14 +25,18 @@ class LicitacoesController extends AppController {
          */
 	function setRelated() {	
             if ($this->action == 'view' ) {
+                $empresas = $this->Licitacao->Resultado->Empresa->find('list');
                 $tipoeventos = $this->Licitacao->Evento->Tipoevento->find('list');
                 $this->set('tipoeventos',$tipoeventos);
+                $this->set('empresas',$empresas);
             } else {
                 $modalidades = $this->Licitacao->Modalidade->find('list');
                 $tipolicitacoes = $this->Licitacao->Tipolicitacao->find('list');
                 $usuarios = $this->Licitacao->Usuario->find('list');
                 $contratantes = $this->Licitacao->Contratante->find('list');
                 $eventos = $this->Licitacao->Evento->find('list');
+                
+                
                 $this->set(compact('modalidades', 'tipolicitacoes', 'usuarios', 'contratantes', 'eventos'));
             }
 	}       
