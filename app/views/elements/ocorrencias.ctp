@@ -32,7 +32,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('Nova Ocorrência', true), array('controller' => 'ocorrencias', 'action' => 'add'),array('class'=>'button'));?> </li>
+			<li><?php echo $this->Html->link(__('Nova Ocorrência', true), array('controller' => 'ocorrencias', 'action' => 'add', 'fk'=>$currentModel['Contrato']['id']),array('class'=>'button'));?> </li>
 		</ul>
 	</div>
 </div>        

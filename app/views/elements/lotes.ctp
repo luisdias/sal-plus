@@ -45,7 +45,7 @@
 <?php endif; ?>
     <div class="actions">
         <ul>
-            <li><?php echo $this->Html->link(__('Novo Lote', true), array('controller' => 'lotes', 'action' => 'add'),array('class'=>'button'));?> </li>
+            <li><?php echo $this->Html->link(__('Novo Lote', true), array('controller' => 'lotes', 'action' => 'add', 'fk'=>$currentModel['Licitacao']['id']),array('class'=>'button'));?> </li>
         </ul>
     </div>        
 </div>

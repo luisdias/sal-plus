@@ -29,7 +29,7 @@
 <?php endif; ?>
     <div class="actions">
         <ul>
-                <li><?php echo $this->Html->link(__('Novo Recurso', true), array('controller' => 'recursos', 'action' => 'add'),array('class'=>'button'));?> </li>
+                <li><?php echo $this->Html->link(__('Novo Recurso', true), array('controller' => 'recursos', 'action' => 'add', 'fk'=>$currentModel['Contrato']['id']),array('class'=>'button'));?> </li>
         </ul>
     </div>
 </div>
