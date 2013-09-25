@@ -17,16 +17,16 @@
                     $fk = $this->data['Aditivo']['fk'];
                 } else {
                     $fk = null;
-                }                 
-                echo $this->Form->input('tipoaditivo_id',array('label'=>'Tipo','empty'=>'-- Selecione o tipo --'));
-		echo $this->Form->input('id',array('label'=>'Id','size'=>''));
-		echo $this->Form->input('numero',array('label'=>'Número','size'=>'15'));
+                }
                 if ( !is_null($fk) ) {
                     echo $this->Form->input('contrato_id',array('disabled'=>'true','label'=>'Contrato','value'=>$fk));
                     echo $this->Form->input('contrato_id',array('type'=>'hidden','value'=>$fk));                                    
                 } else {
                     echo $this->Form->input('contrato_id',array('label'=>'Contrato','empty'=>'-- Selecione o contrato --'));
-                }
+                }                
+                echo $this->Form->input('tipoaditivo_id',array('label'=>'Tipo','empty'=>'-- Selecione o tipo --'));
+		echo $this->Form->input('id',array('label'=>'Id','size'=>''));
+		echo $this->Form->input('numero',array('label'=>'Número','size'=>'15'));
 		echo $this->Form->input('numero_processo',array('label'=>'Número processo','size'=>'15'));
 		echo $this->Form->input('ano_processo',array('label'=>'Ano processo','size'=>'4'));
                 echo $this->Form->input('dt_assinatura',array('type'=>'text','label'=>'Assinatura','class'=>'datepicker','size'=>'10'));
