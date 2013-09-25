@@ -72,7 +72,8 @@
             
             <span class="floatright">
                 <a href="http://www.famfamfam.com" target="blank">Icons by FamFamFam</a> | 
-                <a href="http://www.webresourcesdepot.com/free-admin-template-for-web-applications/" target="blank">Design by Web Resources Depot</a>
+                <a href="http://www.webresourcesdepot.com/free-admin-template-for-web-applications/" target="blank">Design by Web Resources Depot</a> |
+                SAL+ Versão 2.0.1
             </span>
         </p>
     </div>        
