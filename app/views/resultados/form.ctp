@@ -16,12 +16,19 @@
                 $fk = null;
             }         
             echo $this->Form->input('id');
-            if ( $this->action == 'edit' ) {
+            
+            if ( !is_null($fk) ) {
                 echo $this->Form->input('licitacao_id',array('label'=>'Licitação','disabled'=>'true','value'=>$fk));
-                echo $this->Form->input('licitacao_id',array('type'=>'hidden','value'=>$fk));                                    
+                echo $this->Form->input('licitacao_id',array('type'=>'hidden','value'=>$fk));                
             } else {
-                echo $this->Form->input('licitacao_id',array('label'=>'Licitação','empty'=>'-- Selecione a licitação --'));
+                if ( $this->action == 'edit' ) {
+                    echo $this->Form->input('licitacao_id',array('label'=>'Licitação','disabled'=>'true','value'=>$fk));
+                    echo $this->Form->input('licitacao_id',array('type'=>'hidden','value'=>$fk));                                    
+                } else {
+                    echo $this->Form->input('licitacao_id',array('label'=>'Licitação','empty'=>'-- Selecione a licitação --'));
+                }                
             }
+
             if ( $this->action == 'edit' ) {
                 echo $this->Form->input('empresa_id',array('disabled'=>'true'));
                 echo $this->Form->input('empresa_id',array('type'=>'hidden'));                                                        
