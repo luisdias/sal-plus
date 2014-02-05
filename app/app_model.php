@@ -6,6 +6,14 @@
  */
 
 class AppModel extends Model {
+    function beforeSave($options = array()) {
+        parent::beforeSave($options);
+        /* secure against XSS */
+        $this->data = Sanitize::clean($this->data, array('encode' => false));
+        return true;
+    }
+    
+    
     function dateFormatBeforeSave($dateString) {    
         $dateString = str_replace('/', '-', $dateString);
         return date('Y-m-d', strtotime($dateString)); 
