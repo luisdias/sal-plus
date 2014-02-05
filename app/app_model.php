@@ -4,6 +4,7 @@
     Copyright (C) 2013  Smartbyte - Luís E. S. Dias
     Contato : smartbyte.systems@gmail.com
  */
+App::import('Sanitize');
 
 class AppModel extends Model {
     function beforeSave($options = array()) {
