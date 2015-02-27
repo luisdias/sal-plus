@@ -21,11 +21,10 @@ class EmpresasController extends AppController {
         }          
 	function setRelated() {
             if ($this->action == 'view' ) {
-                $licitacoes =  $this->Empresa->Licitacao->find('list');
-                $modalidades = $this->Empresa->Licitacao->Modalidade->find('list');
-                $tipos = $this->Empresa->Licitacao->Tipolicitacao->find('list');
-                $contratantes = $this->Empresa->Licitacao->Contratante->find('list');
-                $this->set(compact('licitacoes','modalidades','tipos','contratantes'));
+                $resultados =  $this->Empresa->Resultado->find('list');
+                $this->loadModel('Licitacao');
+                $licitacoes =  $this->Licitacao->find('list');
+                $this->set(compact('licitacoes','resultados'));
             }
 	}
 }

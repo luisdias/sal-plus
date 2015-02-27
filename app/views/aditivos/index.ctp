@@ -2,65 +2,70 @@
     <div class="top-bar">
         <?php 
         if ( isset($this->passedArgs['fk']) ) {
-            echo $this->Html->link(__('Novo', true), array('action' => 'add', 'fk'=>$this->passedArgs['fk']), array('class'=>'button'));
+            echo $this->Html->link(__('Novo', true), array('action' => 'add', 'fk'=>$this->passedArgs['fk']), array('class'=>'btn btn-primary'));
         } else {
-            echo $this->Html->link(__('Novo', true), array('action' => 'add'), array('class'=>'button'));
+            echo $this->Html->link(__('Novo', true), array('action' => 'add'), array('class'=>'btn btn-primary'));
         }
         ?>            
-        <h1><?php __('Aditivos');?>
-        <?php 
-        if ( isset($this->passedArgs['fk']) )
-            echo ' do contrato ' . $contratos[$this->passedArgs['fk']];
-        ?>
-        </h1>            
+           
     </div> 
-    <div class="select-bar">
+    <div class="filter-form">
     <?php
         if ( !isset($this->passedArgs['fk']) ) {
             echo $form->create('Aditivo', array(
-                'url' => array_merge(array('action' => 'find'), $this->params['pass'])
+                'url' => array_merge(array('action' => 'find'), $this->params['pass']),
+                'class'=>'form-inline'
             ));
-            echo $form->input('contrato_id', array('label'=>'Contrato','div' => true,'empty'=>'-- Todos --'));
-            echo $form->submit('zoom.png', array('div' => false, 'alt'=>'pesquisar', 'title'=>'pesquisar'));
+           
+            echo "<div class=\"form-group\">";
+            echo $form->input('contrato_id', array('label'=>'Contrato','div' => false,'empty'=>'-- Todos --','class'=>'form-control'));
+            echo $form->submit('Filtrar', array('div' => false, 'alt'=>'filtrar', 'title'=>'filtrar','class'=>'btn btn-primary'));
+            echo "</div>";
             echo $form->end();
         }
     ?>      
     </div>
     <?php if ( $aditivos != null) { ?>        
-    <div class="aditivos index">                
-            <table class="listing" cellpadding="0" cellspacing="0">
+    <div class="aditivos index">
+            <div class="row mt">
+            <div class="col-lg-12">
+            <div class="content-panel">
+            <h4><i class="fa fa-angle-right"></i> Aditivos
+            <?php 
+            if ( isset($this->passedArgs['fk']) )
+                echo ' do contrato ' . $contratos[$this->passedArgs['fk']];
+            ?>
+            </h4>
+            <section id="unseen">
+            <table class="table table-bordered table-striped table-advance table-hover">
+            <thead>
             <tr>
                 <?php if ( !isset($this->passedArgs['fk']) ) { ?>
                 <th><?php echo $this->Paginator->sort('Contrato','Contrato.numero');?></th>
                 <?php } ?>
                 <th><?php echo $this->Paginator->sort('Número','numero');?></th>
-                <th><?php echo $this->Paginator->sort('Processo','numero_processo');?></th>
-                <th><?php echo $this->Paginator->sort('Ano','ano_processo');?></th>
-                <th><?php echo $this->Paginator->sort('Tipo','Tipoaditivo.title');?></th>
-                <th><?php echo $this->Paginator->sort('Documento','documento');?></th>
+                <th class="hidden-phone"><?php echo $this->Paginator->sort('Processo','numero_processo');?></th>
+                <th class="hidden-phone"><?php echo $this->Paginator->sort('Ano','ano_processo');?></th>
+                <th class="hidden-phone"><?php echo $this->Paginator->sort('Tipo','Tipoaditivo.title');?></th>
+                <th class="hidden-phone"><?php echo $this->Paginator->sort('Documento','documento');?></th>
                 <th class="actions"><?php __('Ações');?></th>
             </tr>
-            <?php
-            $i = 0;
-            foreach ($aditivos as $aditivo):
-                    $class = null;
-                    if ($i++ % 2 == 0) {
-                            $class = ' class="altrow"';
-                    }
-            ?>
-    <tr<?php echo $class;?>>
+            </thead>
+            <tbody>
+            <?php foreach ($aditivos as $aditivo): ?>
+            <tr>
             <?php if ( !isset($this->passedArgs['fk']) ) { ?>
             <td>
                 <?php echo $this->Html->link($aditivo['Contrato']['numero'], array('controller' => 'contratos', 'action' => 'view', $aditivo['Contrato']['id'])); ?>
             </td>
             <?php } ?>
             <td><?php echo $aditivo['Aditivo']['numero']; ?>&nbsp;</td>
-            <td><?php echo $aditivo['Aditivo']['numero_processo']; ?>&nbsp;</td>
-            <td><?php echo $aditivo['Aditivo']['ano_processo']; ?>&nbsp;</td>
-            <td>
+            <td class="hidden-phone"><?php echo $aditivo['Aditivo']['numero_processo']; ?>&nbsp;</td>
+            <td class="hidden-phone"><?php echo $aditivo['Aditivo']['ano_processo']; ?>&nbsp;</td>
+            <td class="hidden-phone">
                 <?php echo $this->Html->link($aditivo['Tipoaditivo']['title'], array('controller' => 'tipoaditivos', 'action' => 'view', $aditivo['Tipoaditivo']['id'])); ?>
             </td>
-            <td>
+            <td class="hidden-phone">
                 <?php 
                 if (!empty($aditivo['Aditivo']['documento'])) {
                     echo $this->Html->link(
@@ -71,7 +76,7 @@
                 };
                 ?>&nbsp;
             </td>            
-            <td class="actions">
+            <td>
                 <?php echo $this->Html->link($this->Html->image('image_new.gif', array('alt' => 'Documento','title' => 'Documento')), array('action' => 'file', $aditivo['Aditivo']['id']),array('escape' => false)); ?>
                 <?php echo $this->Html->link($this->Html->image('page-find.gif', array('alt' => 'Consultar','title' => 'Consultar')), array('action' => 'view', $aditivo['Aditivo']['id']),array('escape' => false)); ?>
                 <?php echo $this->Html->link($this->Html->image('edit-icon.gif', array('alt' => 'Editar','title' => 'Editar')), array('action' => 'edit', $aditivo['Aditivo']['id'], 'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)),array('escape' => false)); ?>
@@ -79,8 +84,13 @@
             </td>
     </tr>
 <?php endforeach; ?>
+            </tbody>
             </table>
+            </section>
         <?php echo $this->element('paginator'); ?>
+        </div><!-- /content-panel -->
+        </div><!-- /col-lg-4 -->			
+        </div><!-- /row -->                
         </div>                
         <?php 
         } else {

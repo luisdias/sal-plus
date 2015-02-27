@@ -1,7 +1,12 @@
-<h3><?php __('Mapa de licitações');?></h3>
-<p>Eventos futuros</p>
+<h3><i class="fa fa-angle-right"></i>Mapa de licitações</h3>
 <?php if (!empty($eventos)) { ?>
-    <table class="listing" cellpadding = "0" cellspacing = "0">
+    <div class="row mt">
+    <div class="col-lg-12">
+    <div class="content-panel">
+    <h4><i class="fa fa-angle-right"></i>Eventos futuros</h4>
+    <section id="no-more-tables">
+    <table class="table table-bordered table-striped table-condensed cf">
+    <thead class="cf">
     <tr>
         <th><?php __('Alerta'); ?></th>
         <th><?php __('Licitação'); ?></th>
@@ -11,6 +16,7 @@
         <th><?php __('Tipo'); ?></th>
         <th class="actions">Ações</th>
     </tr>
+    </thead>    
     <?php
     $i = 0;
     foreach ($eventos as $evento):
@@ -20,8 +26,8 @@
         }
     ?>
         <tr<?php echo $class;?>>
-            <td class="tbl-col-1"><?php echo $this->element('bandeira_alerta',array('dias_restantes' => $evento['Evento']['dias_restantes'])); ?></td>                    
-            <td class="tbl-col-2"><?php echo $this->Html->link(
+            <td data-title="Alerta"><?php echo $this->element('bandeira_alerta',array('dias_restantes' => $evento['Evento']['dias_restantes'])); ?></td>                    
+            <td data-title="Licitação"><?php echo $this->Html->link(
                 $evento['Licitacao']['num_edital'],
                 array(
                     'controller'=>'licitacoes',
@@ -31,10 +37,10 @@
                 );?>
             </td>                
 
-            <td class="tbl-col-3"><?php echo $evento['Evento']['dt_eve'];?></td>
-            <td class="tbl-col-4"><?php echo $this->element('dia_da_semana',array('int_dia_da_semana' => $evento['Evento']['dia_da_semana'])); ?></td>
-            <td class="tbl-col-5a"><?php echo $evento['Evento']['dias_restantes'];?></td>                        
-            <td class="tbl-col-5b"><?php echo $evento['Tipoevento']['title'];?></td>
+            <td data-title="Data"><?php echo $evento['Evento']['dt_eve'];?></td>
+            <td data-title="Dia da semana"><?php echo $this->element('dia_da_semana',array('int_dia_da_semana' => $evento['Evento']['dia_da_semana'])); ?></td>
+            <td data-title="Dias"><?php echo $evento['Evento']['dias_restantes'];?></td>                        
+            <td data-title="Tipo"><?php echo $evento['Tipoevento']['title'];?></td>
 
         <td class="action_col">
             <?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('controller' => 'eventos','action' => 'view', $evento['Evento']['id']),array('escape' => false)); ?>
@@ -45,6 +51,10 @@
         </tr>
     <?php endforeach; ?>
     </table>
+    </section>
+    </div><!-- /content-panel -->
+    </div><!-- /col-lg-4 -->			
+    </div><!-- /row --> 
 <?php } else { ?>
-    <p><b><i>Não existem eventos futuros cadastrados</i></b></p>
+    <div class="alert alert-info"><i class=" fa fa-ellipsis-v"></i>&nbsp;<b>Não existem eventos futuros cadastrados</b></div>
 <?php } ?>

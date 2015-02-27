@@ -29,8 +29,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </script>    
 <?php echo $this->Html->css('/report_manager/css/report_manager'); ?>
 <?php echo $this->Html->css('/report_manager/css/smart_wizard'); ?>
-<?php echo $this->Html->script(array('https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')); ?>
-<?php echo $this->Html->script(array('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js')); ?>
+
 <?php echo $this->Html->script(array('/report_manager/js/jquery.smartWizard-2.0.js','/report_manager/js/default.js')); ?>
 <?php echo $this->Form->create(null,array('action'=>'wizard' . "/" . implode("/",$this->params['pass']),'target'=>'_blank','id'=>'ReportWizardForm'));?>
 <div id="wizard" class="swMain">

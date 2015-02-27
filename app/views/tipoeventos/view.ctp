@@ -1,20 +1,20 @@
-<div class="tipoeventos view">
-<h2><?php  __('Tipo de evento');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $tipoevento['Tipoevento']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Descrição'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $tipoevento['Tipoevento']['title']; ?>
-			&nbsp;
-		</dd>
-                <?php echo $this->element('adminfields',
-                        array('currentModel' => $tipoevento['Tipoevento'],'class'=>$class,'i'=>$i));
-                ?>
-	</dl>
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="form-panel">
+            <h4 class="mb"><i class="fa fa-angle-right"></i> Situação</h4>
+            <div class="form-horizontal style-form">
+                <div class="form-group">
+                    <label class="col-sm-2">ID</label>
+                    <div class="col-sm-10"><?php echo $tipoevento['Tipoevento']['id']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Descrição</label>
+                    <div class="col-sm-10"><?php echo $tipoevento['Tipoevento']['title']; ?></div>
+                </div>                
+                <?php echo $this->element('adminfields',array('currentModel' => $tipoevento['Tipoevento']));?>
+            </div>
+        </div>
+    </div>
 </div>
 <?php echo $this->element('licitacoes',array('currentModel' => $tipoevento)); ?>
 <!-- SALPLUS | Copyright: 2013 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->

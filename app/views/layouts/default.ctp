@@ -1,7 +1,7 @@
 <?php
 /**
  * SAL Plus :: Sistema de Acompanhamento de Licitações e Contratos
- * Copyright : Luís E. S. Dias 2013
+ * Copyright : Luís E. S. Dias 2013-2015
  * smartbyte.systems@gmail.com
  */
 ?>
@@ -16,17 +16,22 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-                echo $this->Html->script(array('jquery-1.9.1.min.js', 'jquery-ui-1.10.1.custom.min.js'));
-                echo $this->Html->script(array('easybox/distrib.min'));
-                echo $this->Html->script(array('jquery-ui/js/jquery-ui-1.10.2.custom.min'));
-                echo $this->Html->script('jquery-ui/js/jquery.ui.datepicker-pt');
-
-                echo $this->Html->css('admin');
-                echo $this->Html->css('pagination');
-                echo $this->Html->css('print','stylesheet',array('media' => 'print'));
-                echo $this->Html->css('easybox/default/easybox.min');
-                echo $this->Html->css('jquery-ui/ui-lightness/jquery-ui-1.10.2.custom.min');
+                echo $this->Html->css("/assets/css/bootstrap.css");
+                echo $this->Html->css("/assets/font-awesome/css/font-awesome.css");
+                echo $this->Html->css("/assets/css/style.css");
+                echo $this->Html->css("/assets/css/style-responsive.css");
+                echo $this->Html->css("/assets/css/table-responsive.css");
+                echo $this->Html->css("/assets/css/salplus.css");                
+                echo $this->Html->css('jquery-ui/ui-lightness/jquery-ui-1.10.2.custom.min');                
                 
+                echo $this->Html->script(array("/assets/js/jquery.js"));
+                echo $this->Html->script(array('jquery-ui/js/jquery-ui-1.10.2.custom.min'));
+                echo $this->Html->script('jquery-ui/js/jquery.ui.datepicker-pt');     
+                echo $this->Html->script(array("/assets/js/bootstrap.min.js"));
+                echo $this->Html->script(array("/assets/js/jquery.dcjqaccordion.2.7.js"));
+                echo $this->Html->script(array("/assets/js/jquery.scrollTo.min.js"));
+                echo $this->Html->script(array("/assets/js/jquery.nicescroll.js"));
+                echo $this->Html->script(array("/assets/js/common-scripts.js"));        
                 echo $this->Html->script(array('default.js'));
 
                 echo $scripts_for_layout;
@@ -35,49 +40,148 @@
     firstLevel = "<?php echo Router::url('/',true); ?>";
 </script>    
 </head>
-<body>
-<div id="main">    
-    <div id="header">
-        <a href="#" class="logo">SAL Plus :: Sistema de Acompanhamento de Licitações e Contratos</a>        
-        <?php echo $this->Session->flash(); ?>                    
-        <ul id="top-navigation">            
-            <li><?php echo $this->Html->link(__('Home', true), '/', array('class'=>(($active_class=="Home" ? "active" : "none")))); ?></li>
-            <li><?php echo $this->Html->link(__('Licitações', true), '/licitacoes', array('class'=>(($active_class=="Licitacoes" ? "active" : "none")))); ?></li>
-            <li><?php echo $this->Html->link(__('Contratos', true), '/contratos', array('class'=>(($active_class=="Contratos" ? "active" : "none")))); ?></li>
-            <li><?php echo $this->Html->link(__('Relatórios', true), '/report_manager/reports', array('class'=>(($active_class=="Relatorios" ? "active" : "none")))); ?></li>
-            <li><?php echo $this->Html->link(__('Configurações', true), '/usuarios', array('class'=>(($active_class=="Configuracoes" ? "active" : "none")))); ?></li>
-        </ul>
-    </div>
-    <div id="middle">
-        <div id="left-column">
-            <?php echo $this->element('menu_' . strtolower($active_class)); ?>
-            <div id="quick-info">
-            <strong class="h">Login Info</strong>
-            <div class="box">
-            <?php echo '<b>Login : </b>' . $user['Usuario']['login'] . '<br/>'; ?>                
-            <?php echo '<b>Nome : </b>' . $user['Usuario']['name'] . '<br/>'; ?>
-            <?php echo '<b>Perfil : </b>' . $user['Usuario']['perfil']; ?>
-            </div>
-            </div>
 
-            <?php echo $this->Html->link(__('Sair', true), array('controller' => 'usuarios', 'action' => 'logout', 'plugin'=>null), array('class'=>'link')); ?>
-        </div>
-        <div id="center-column">                   
+  <body>
+
+  <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+            <a href="#" class="logo"><b>SAL Plus</b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                <ul class="nav top-menu">
+                    <!-- settings end -->
+                    <!-- inbox dropdown start-->
+                </ul>
+                <!--  notification end -->
+            </div>
+            <div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'usuarios','action'=>'logout')); ?>">Logout</a></li>
+            	</ul>
+            </div>
+        </header>
+      <!--header end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+                  <h5 class="centered">
+                    <?php echo '<b>Login : </b>' . $user['Usuario']['login'] . '<br/>'; ?>                
+                    <?php echo '<b>Nome : </b>' . $user['Usuario']['name'] . '<br/>'; ?>
+                    <?php echo '<b>Perfil : </b>' . $user['Usuario']['perfil']; ?>                                            
+                  </h5>
+              	  	
+                  <li class="mt">
+                      <a href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'mapas','action'=>'index')); ?>">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Home</span>
+                      </a>                      
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:null;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>Licitações</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'licitacoes','action'=>'index')); ?>">Listar</a></li>
+                          <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'eventos','action'=>'index')); ?>">Eventos</a></li>
+                          <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'lotes','action'=>'index')); ?>">Lotes</a></li>
+                          <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'resultados','action'=>'index')); ?>">Resultados</a></li>
+                          <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'contratantes','action'=>'index')); ?>">Contratantes</a></li>
+                          <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'empresas','action'=>'index')); ?>">Empresas</a></li>
+                            <?php if ( $user['Usuario']['perfil'] == 'admin' ) { ?>
+                                <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'modalidades','action'=>'index')); ?>">Modalidades</a></li>
+                                <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'tipolicitacoes','action'=>'index')); ?>">Tipos de licitações</a></li>
+                                <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'tipoeventos','action'=>'index')); ?>">Tipos de eventos</a></li>      
+                            <?php } ?>                            
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-book"></i>
+                          <span>Contratos</span>
+                      </a>
+                      <ul class="sub">
+                        <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'contratos','action'=>'index')); ?>">Listar</a></li>
+                        <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'aditivos','action'=>'index')); ?>">Aditivos</a></li>
+                        <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'ocorrencias','action'=>'index')); ?>">Ocorrências</a></li>
+                        <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'recursos','action'=>'index')); ?>">Recursos</a></li>
+                        <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'pessoas','action'=>'index')); ?>">Pessoas</a></li>
+                        <?php if ( $user['Usuario']['perfil'] == 'admin' ) { ?>
+                            <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'situacoes','action'=>'index')); ?>">Situações</a></li>
+                            <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'reajustes','action'=>'index')); ?>">Reajustes</a></li>
+                            <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'garantias','action'=>'index')); ?>">Garantias</a></li>
+                            <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'tipoaditivos','action'=>'index')); ?>">Tipos de aditivos</a></li>
+                            <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'tipoocorrencias','action'=>'index')); ?>">Tipos de ocorrências</a></li>
+                        <?php } ?>
+                        <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'recebimentos','action'=>'index')); ?>">Recebimentos</a></li>
+                      </ul>
+                  </li>
+                  <li class="mt" style="margin-top: 0;">
+                      <a href="<?php echo $this->Html->url(array('plugin'=>'report_manager','controller'=>null,'action'=>'reports')); ?>" >
+                          <i class=" fa fa-bar-chart-o"></i>
+                          <span>Relatórios</span>
+                      </a>
+                  </li>   
+                  <?php if ( $user['Usuario']['perfil'] == 'admin' ) { ?>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-cogs"></i>
+                          <span>Configurações</span>
+                      </a>
+                      <ul class="sub">                          
+                          <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'usuarios','action'=>'index')); ?>">Usuários</a></li>
+                      </ul>
+                  </li>
+                  <?php } ?> 
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+        <section class="wrapper">
         <?php echo $content_for_layout; ?>
-        </div>
-    </div>
-    <div id="footer">
-        <p>
-            © <a href="http://www.smartbyte.com.br" target="blank">Smartbyte</a> 2013.
-            
-            <span class="floatright">
-                <a href="http://www.famfamfam.com" target="blank">Icons by FamFamFam</a> | 
-                <a href="http://www.webresourcesdepot.com/free-admin-template-for-web-applications/" target="blank">Design by Web Resources Depot</a> |
-                SAL+ Versão 2.0.1
-            </span>
-        </p>
-    </div>        
-    <?php echo $this->element('sql_dump'); ?>    
-</div>
-</body>
+        </section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+
+      <!--main content end-->
+      <!--footer start-->
+      <footer class="site-footer">
+          <div class="text-center">
+              © <a href="http://www.smartbyte.com.br" target="blank">Smartbyte</a> 2013-2015
+              Design by 2014 - Alvarez.is
+              <a href="#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+  </section>
+
+    
+
+    
+  <?php echo $this->element('sql_dump'); ?>  
+  </body>
 </html>

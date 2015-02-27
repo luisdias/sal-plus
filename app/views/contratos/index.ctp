@@ -2,48 +2,45 @@
     <div class="top-bar">
         <?php 
         if ( $this->action == 'index' || $this->action == 'find' )
-            echo $this->Html->link(__('Novo', true), array('action' => 'add'), array('class'=>'button')); 
-        ?>            <h1><?php __('Contratos');?></h1>    
+            echo $this->Html->link(__('Novo', true), array('action' => 'add'), array('class'=>'btn btn-primary')); 
+        ?>                    
     </div> 
-    <div class="select-bar">
+    <div class="filter-form">
     <?php
             echo $form->create('Contrato', array(
-                    'url' => array_merge(array('action' => 'find'), $this->params['pass'])
-                    ));
-            echo $form->input('numero', array('label'=>'Número','div' => false));
-            echo $form->submit('zoom.png', array('div' => false, 'alt'=>'pesquisar', 'title'=>'pesquisar'));
+                'url' => array_merge(array('action' => 'find'), $this->params['pass']),
+                'class'=>'form-inline'
+                ));
+            echo "<div class=\"form-group\">";
+            echo $form->input('numero', array('label'=>'Número','div' => false,'class'=>'form-control'));
+            echo $form->submit('Filtrar', array('div' => false, 'alt'=>'filtrar', 'title'=>'filtrar','class'=>'btn btn-primary'));
+            echo "</div>";
             echo $form->end();
     ?> 
     </div>
-    <?php if ( $contratos != null) { ?>        <div class="contratos index">                
-            <table class="listing" cellpadding="0" cellspacing="0">
+    <?php if ( $contratos != null) { ?>        
+    <div class="contratos index">
+            <div class="row mt">
+            <div class="col-lg-12">
+            <div class="content-panel">
+            <h4><i class="fa fa-angle-right"></i> Contratos
+            </h4>
+            <section id="unseen">          
+            <table class="table table-bordered table-striped table-advance table-hover">
             <tr>
-
+                    <th><?php echo $this->Paginator->sort('Número','numero');?></th>                
                     <th><?php echo $this->Paginator->sort('Situação','Situacao.title');?></th>
-
-                    <th><?php echo $this->Paginator->sort('Número','numero');?></th>
-
                     <th><?php echo $this->Paginator->sort('Licitação','Licitacao.num_edital');?></th>
-
                     <th><?php echo $this->Paginator->sort('Documento','documento');?></th>
-
                     <th><?php echo $this->Paginator->sort('Empenho','numero_empenho');?></th>
-
-                                    <th class="actions"><?php __('Ações');?></th>
+                    <th class="actions"><?php __('Ações');?></th>
             </tr>
-            <?php
-            $i = 0;
-            foreach ($contratos as $contrato):
-                    $class = null;
-                    if ($i++ % 2 == 0) {
-                            $class = ' class="altrow"';
-                    }
-            ?>
-    <tr<?php echo $class;?>>
+            <?php foreach ($contratos as $contrato): ?>
+            <tr>
+            <td><?php echo $contrato['Contrato']['numero']; ?>&nbsp;</td>        
             <td>
                     <?php echo $this->Html->link($contrato['Situacao']['title'], array('controller' => 'situacoes', 'action' => 'view', $contrato['Situacao']['id'])); ?>
             </td>
-            <td><?php echo $contrato['Contrato']['numero']; ?>&nbsp;</td>
             <td>
                     <?php echo $this->Html->link($contrato['Licitacao']['num_edital'], array('controller' => 'licitacoes', 'action' => 'view', $contrato['Licitacao']['id'])); ?>
             </td>
@@ -73,7 +70,11 @@
     </tr>
 <?php endforeach; ?>
             </table>
+        </section>                  
         <?php echo $this->element('paginator'); ?>
+        </div><!-- /content-panel -->
+        </div><!-- /col-lg-4 -->			
+        </div><!-- /row -->                 
         </div>                
         <?php 
         } else {

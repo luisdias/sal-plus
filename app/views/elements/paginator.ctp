@@ -20,7 +20,7 @@
  */
 ?>
 <div id="tnt_pagination">
-<?php echo $this->Paginator->prev(__('Voltar', true), array(), null, array('class'=>'disabled_tnt_pagination'));?>    
+<?php echo $this->Paginator->prev(__('Voltar', true), null, null, null);?>
 <?php echo $this->Paginator->numbers(array('separator'=>''));?>
-<?php echo $this->Paginator->next(__('Avançar', true), array(), null, array('class' => 'disabled_tnt_pagination'));?>
+<?php echo $this->Paginator->next(__('Avançar', true), null, null, null);?>
 </div>

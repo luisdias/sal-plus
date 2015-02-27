@@ -19,20 +19,23 @@
  
  */
 ?>
-<?php if ( $user['Usuario']['perfil'] == 'admin' ) { ?> 
-    <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Criado'); ?></dt>
-    <dd<?php if ($i++ % 2 == 0) echo $class;?>>
-            <?php echo $currentModel['created']; ?>
-            &nbsp;
-    </dd>
-    <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modificado'); ?></dt>
-    <dd<?php if ($i++ % 2 == 0) echo $class;?>>
-            <?php echo $currentModel['modified']; ?>
-            &nbsp;
-    </dd>
-    <dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modificado por'); ?></dt>
-    <dd<?php if ($i++ % 2 == 0) echo $class;?>>
-            <?php echo $currentModel['modified_by']; ?>
-            &nbsp;
-    </dd>
+<?php if ( $user['Usuario']['perfil'] == 'admin' ) { ?>
+        <div class="form-group">
+            <label class="col-sm-2">Criado</label>
+            <div class="col-sm-10">
+                <?php echo $currentModel['created']; ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Modificado</label>
+            <div class="col-sm-10">
+                <?php echo $currentModel['modified']; ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Modificado por</label>
+            <div class="col-sm-10">
+                <?php echo $currentModel['modified_by']; ?>
+            </div>
+        </div>
 <?php } ?>

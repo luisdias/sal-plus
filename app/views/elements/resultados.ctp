@@ -1,47 +1,48 @@
 <div class="related">
-	<?php if (!empty($currentModel['Resultado'])):?>
-	<h3><?php __('Resultados relacionados');?></h3>    
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('Razão Social'); ?></th>
-		<th><?php __('Habilitação'); ?></th>
-		<th><?php __('Nota técnica'); ?></th>
-		<th><?php __('Preço'); ?></th>
-		<th><?php __('Desconto'); ?></th>
-		<th><?php __('Nota de preço'); ?></th>
-		<th><?php __('Nota final'); ?></th>
-		<th><?php __('Vencedor'); ?></th>
-                <th class="actions"><?php __('Ações');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($currentModel['Resultado'] as $resultado):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $empresas[$resultado['empresa_id']];?></td>
-			<td><?php echo ( $resultado['habilitacao'] == 0 ? 'N' : 'S' );?></td>                       
-			<td><span class="floatright"><?php echo $resultado['nota_tecnica'];?></span></td>
-			<td><span class="floatright"><?php echo $resultado['preco'];?></span></td>
-			<td><span class="floatright"><?php echo $resultado['desconto'];?></span></td>
-			<td><span class="floatright"><?php echo $resultado['nota_de_preco'];?></span></td>
-			<td><span class="floatright"><?php echo $resultado['nota_final'];?></span></td>                        
-			<td><?php echo ( $resultado['vencedor'] == 0 ? 'N' : 'S' );?></td>
-			<td class="actions">
-				<?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('controller' => 'resultados', 'action' => 'view', $resultado['id']),array('escape' => false)); ?>
-				<?php echo $this->Html->link($this->Html->image("edit-icon.gif", array("alt" => "Editar","title" => "Editar")), array('controller' => 'resultados', 'action' => 'edit', $resultado['id']),array('escape' => false)); ?>
-				<?php echo $this->Html->link($this->Html->image("hr.gif", array("alt" => "Excluir","title" => "Excluir")), array('controller' => 'resultados', 'action' => 'delete', $resultado['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $resultado['id'])); ?>
-			</td>                        
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-    <div class="actions">
-        <ul>
-            <li><?php echo $this->Html->link(__('Novo Resultado', true), array('controller' => 'resultados', 'action' => 'add', 'fk'=>$currentModel['Licitacao']['id']),array('class'=>'button'));?> </li>
-        </ul>
+    <div class="row mt">
+    <div class="col-lg-12">
+    <div class="content-panel">
+    <h4><i class="fa fa-angle-right"></i> Resultados relacionados</h4>    
+    <?php if (!empty($currentModel['Resultado'])):?>
+        <section id="no-more-tables">
+        <table class="table table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+            <tr>
+                <th>Razão Social</th>
+                <th>Habilitação</th>
+                <th>Nota técnica</th>
+                <th>Preço</th>
+                <th>Desconto</th>
+                <th>Nota de preço</th>
+                <th>Nota final</th>
+                <th>Vencedor</th>
+                <th class="actions">Ações</th>
+            </tr>
+            </thead>
+            <?php foreach ($currentModel['Resultado'] as $resultado): ?>
+                <tr>
+                    <td data-title="Razão Social"><?php echo $empresas[$resultado['empresa_id']];?></td>
+                    <td data-title="Habilitação"><?php echo ( $resultado['habilitacao'] == 0 ? 'N' : 'S' );?></td>                       
+                    <td data-title="Nota técnica"><span class="floatright"><?php echo $resultado['nota_tecnica'];?></span></td>
+                    <td data-title="Preço"><span class="floatright"><?php echo $resultado['preco'];?></span></td>
+                    <td data-title="Desconto"><span class="floatright"><?php echo $resultado['desconto'];?></span></td>
+                    <td data-title="Nota de preço"><span class="floatright"><?php echo $resultado['nota_de_preco'];?></span></td>
+                    <td data-title="Nota final"><span class="floatright"><?php echo $resultado['nota_final'];?></span></td>                        
+                    <td data-title="Vencedor"><?php echo ( $resultado['vencedor'] == 0 ? 'N' : 'S' );?></td>
+                    <td class="actions">
+                        <?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('controller' => 'resultados', 'action' => 'view', $resultado['id']),array('escape' => false)); ?>
+                        <?php echo $this->Html->link($this->Html->image("edit-icon.gif", array("alt" => "Editar","title" => "Editar")), array('controller' => 'resultados', 'action' => 'edit', $resultado['id']),array('escape' => false)); ?>
+                        <?php echo $this->Html->link($this->Html->image("hr.gif", array("alt" => "Excluir","title" => "Excluir")), array('controller' => 'resultados', 'action' => 'delete', $resultado['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $resultado['id'])); ?>
+                    </td>                        
+                </tr>
+            <?php endforeach; ?>
+            </table>
+        </section>
+    <?php endif; ?>    
+    </div><!-- /content-panel -->
+    </div><!-- /col-lg-4 -->			
+    </div><!-- /row -->              
+    <div class="related-actions">
+    <?php echo $this->Html->link(__('Novo Resultado', true), array('controller' => 'resultados', 'action' => 'add', 'fk'=>$currentModel['Licitacao']['id']),array('class'=>'btn btn-primary'));?> </li>
     </div>        
 </div>

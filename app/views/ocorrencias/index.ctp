@@ -2,32 +2,40 @@
     <div class="top-bar">
         <?php 
         if ( isset($this->passedArgs['fk']) ) {
-            echo $this->Html->link(__('Novo', true), array('action' => 'add', 'fk'=>$this->passedArgs['fk']), array('class'=>'button'));
+            echo $this->Html->link(__('Novo', true), array('action' => 'add', 'fk'=>$this->passedArgs['fk']), array('class'=>'btn btn-primary'));
         } else {
-            echo $this->Html->link(__('Novo', true), array('action' => 'add'), array('class'=>'button'));
+            echo $this->Html->link(__('Novo', true), array('action' => 'add'), array('class'=>'btn btn-primary'));
         }
         ?>           
-        <h1><?php __('Ocorrências');?>
-        <?php 
-        if ( isset($this->passedArgs['fk']) )
-            echo ' do contrato ' . $contratos[$this->passedArgs['fk']];
-        ?>
-        </h1>
     </div> 
-    <div class="select-bar">
+    <div class="filter-form">
     <?php
         if ( !isset($this->passedArgs['fk']) ) {
             echo $form->create('Ocorrencia', array(
-                    'url' => array_merge(array('action' => 'find'), $this->params['pass'])
+                    'url' => array_merge(array('action' => 'find'), $this->params['pass']),
+                    'class'=>'form-inline'
                     ));
-            echo $form->input('contrato_id', array('label'=>'Contrato','div' => true,'empty'=>'-- Todos --'));
-            echo $form->submit('zoom.png', array('div' => false, 'alt'=>'pesquisar', 'title'=>'pesquisar'));
+            echo "<div class=\"form-group\">";
+            echo $form->input('contrato_id', array('label'=>'Contrato','div' => false,'empty'=>'-- Todos --','class'=>'form-control'));
+            echo $form->submit('Filtrar', array('div' => false, 'alt'=>'filtrar', 'title'=>'filtrar','class'=>'btn btn-primary'));
+            echo "</div>";
             echo $form->end();
         }
     ?>   
     </div>
-    <?php if ( $ocorrencias != null) { ?>        <div class="ocorrencias index">                
-            <table class="listing" cellpadding="0" cellspacing="0">
+    <?php if ( $ocorrencias != null) { ?>        
+    <div class="ocorrencias index">                
+        <div class="row mt">
+        <div class="col-lg-12">
+        <div class="content-panel">
+        <h4><i class="fa fa-angle-right"></i> Ocorrências
+        <?php 
+        if ( isset($this->passedArgs['fk']) )
+            echo ' do contrato ' . $contratos[$this->passedArgs['fk']];
+        ?>       
+        </h4>
+        <section id="unseen">     
+        <table class="table table-bordered table-striped table-advance table-hover">
             <tr>
                 <?php if ( !isset($this->passedArgs['fk']) ) { ?>
                 <th><?php echo $this->Paginator->sort('Contrato','Contrato.numero');?></th>
@@ -36,15 +44,8 @@
                 <th><?php echo $this->Paginator->sort('Tipo','Tipoocorrencia.title');?></th>
                 <th class="actions"><?php __('Ações');?></th>
             </tr>
-            <?php
-            $i = 0;
-            foreach ($ocorrencias as $ocorrencia):
-                    $class = null;
-                    if ($i++ % 2 == 0) {
-                            $class = ' class="altrow"';
-                    }
-            ?>
-    <tr<?php echo $class;?>>
+            <?php foreach ($ocorrencias as $ocorrencia): ?>
+            <tr>
             <?php if ( !isset($this->passedArgs['fk']) ) { ?>
             <td>
                 <?php echo $this->Html->link($ocorrencia['Contrato']['numero'], array('controller' => 'contratos', 'action' => 'view', $ocorrencia['Contrato']['id'])); ?>
@@ -59,14 +60,18 @@
                     <?php echo $this->Html->link($this->Html->image('edit-icon.gif', array('alt' => 'Editar','title' => 'Editar')), array('action' => 'edit', $ocorrencia['Ocorrencia']['id'],'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)),array('escape' => false)); ?>
                     <?php echo $this->Html->link($this->Html->image('hr.gif', array('alt' => 'Excluir','title' => 'Excluir')), array('action' => 'delete', $ocorrencia['Ocorrencia']['id'],'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)),array('escape' => false), sprintf(__('Tem certeza que deseja excluir a ocorrência da data %s?', true), $ocorrencia['Ocorrencia']['dt_ocorrencia'])); ?>
             </td>
-    </tr>
-<?php endforeach; ?>
+            </tr>
+            <?php endforeach; ?>
             </table>
-        <?php echo $this->element('paginator'); ?>        
-        </div>                
-        <?php 
-        } else {
-            echo $this->Html->tag('span','Não existem itens para listar',array('class'=>'info-msg','div'=>'false'));
-        } ?>                           
+        </section>                  
+        <?php echo $this->element('paginator'); ?>
+        </div><!-- /content-panel -->
+        </div><!-- /col-lg-4 -->			
+        </div><!-- /row -->         
+    </div>                
+    <?php 
+    } else {
+        echo $this->Html->tag('span','Não existem itens para listar',array('class'=>'info-msg','div'=>'false'));
+    } ?>                           
 </div>
-<!-- SALPLUS | Copyright: 2013 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->
+<!-- SALPLUS | Copyright: 2013-2015 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->

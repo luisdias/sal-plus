@@ -28,7 +28,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <?php
 
 ?>
-<?php echo $this->Html->script(array('https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')); ?>
+
 <?php echo $this->Html->script('/report_manager/js/index.js'); ?>
 <?php echo $this->Html->css('/report_manager/css/report_manager'); ?>
 <div class="reportManager index">

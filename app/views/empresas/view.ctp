@@ -1,85 +1,73 @@
-<div class="empresas view">
-<h2><?php  __('Empresa');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Razão social'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['razao_social']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nome'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['name']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('CNPJ'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['cnpj']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Endereço'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['endereco']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Complemento'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['complemento']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Bairro'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['bairro']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cidade'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['cidade']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Estado'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['estado']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cep'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['cep']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Telefone'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['telefone']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Website'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['website']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Tipo'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['tipo_emp']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Contato'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['contato_01']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Telefone'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['telefone_01']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Email'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empresa['Empresa']['email_01']; ?>
-			&nbsp;
-		</dd>
-                <?php echo $this->element('adminfields',
-                        array('currentModel' => $empresa['Empresa'],'class'=>$class,'i'=>$i)); ?>
-	</dl>
-</div>
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="form-panel">
+            <h4 class="mb"><i class="fa fa-angle-right"></i> Empresa</h4>
+            <div class="form-horizontal style-form">
+                <div class="form-group">
+                    <label class="col-sm-2">ID</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['id']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Nome</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['name']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">CNPJ</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['cnpj']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Endereço</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['endereco']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Complemento</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['complemento']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Bairro</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['bairro']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Cidade</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['cidade']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Estado</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['estado']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">CEP</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['cep']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Telefone</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['telefone']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Website</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['website']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Tipo</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['tipo_emp']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Contato</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['contato_01']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Telefone</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['telefone_01']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Email</label>
+                    <div class="col-sm-10"><?php echo $empresa['Empresa']['email_01']; ?></div>
+                </div>
+                <?php echo $this->element('adminfields',array('currentModel' => $empresa['Empresa'])); ?>
+            </div>
+        </div>
+    </div>
+</div>  
 <div class="related">
 	<h3><?php __('Resultados relacionados');?></h3>
 	<?php if (!empty($empresa['Resultado'])):?>
@@ -122,5 +110,5 @@
 	</table>
 <?php endif; ?>
 </div>
-<?php echo $this->element('licitacoes',array('currentModel' => $empresa)); ?>
+<?php echo $this->element('resultados',array('currentModel' => $empresa)); ?>
 <!-- SALPLUS | Copyright: 2013 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->

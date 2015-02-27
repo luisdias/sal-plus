@@ -1,23 +1,31 @@
 <div class="top-bar">
     <?php 
     if ( $this->action == 'index' || $this->action == 'find' )
-        echo $this->Html->link(__('Novo', true), array('action' => 'add'), array('class'=>'button')); 
-    ?>
-    <h1>Licitações</h1>    
+        echo $this->Html->link(__('Novo', true), array('action' => 'add'), array('class'=>'btn btn-primary')); 
+    ?>   
 </div> 
-<div class="select-bar">
+<div class="filter-form">
 <?php
 	echo $form->create('Licitacao', array(
-		'url' => array_merge(array('action' => 'find'), $this->params['pass'])
+		'url' => array_merge(array('action' => 'find'), $this->params['pass']),
+                'class'=>'form-inline'
 		));
-	echo $form->input('num_edital', array('label'=>'Edital','div' => false));
-	echo $form->submit('zoom.png', array('div' => false, 'alt'=>'pesquisar', 'title'=>'pesquisar'));
+        echo "<div class=\"form-group\">";
+	echo $form->input('num_edital', array('label'=>'Edital','div' => false,'class'=>'form-control'));
+        echo $form->submit('Filtrar', array('div' => false, 'alt'=>'filtrar', 'title'=>'filtrar','class'=>'btn btn-primary'));
+        echo "</div>";
 	echo $form->end();
 ?> 
 </div>
 <?php if ( $licitacoes != null) { ?>
 <div class="table">
-    <table class="listing" cellpadding="0" cellspacing="0">
+    <div class="row mt">
+    <div class="col-lg-12">
+    <div class="content-panel">
+    <h4><i class="fa fa-angle-right"></i> Licitações
+    </h4>
+    <section id="unseen">     
+    <table class="table table-bordered table-striped table-advance table-hover">
         <tr>
             <th><?php echo $this->Paginator->sort('Edital','num_edital');?></th>
             <th><?php echo $this->Paginator->sort('Status','status');?></th>
@@ -27,14 +35,7 @@
             <th class="actions"><?php __('Ações');?></th>
         </tr>
 
-        <?php
-        $i = 0;
-        foreach ($licitacoes as $licitacao):
-                $class = null;
-                if ($i++ % 2 == 0) {
-                        $class = ' class="altrow"';
-                }
-        ?>                        
+        <?php foreach ($licitacoes as $licitacao):?>                        
         <tr>
             <td><?php echo $licitacao['Licitacao']['num_edital']; ?>&nbsp;</td>
             <td><?php echo $licitacao['Licitacao']['status']; ?>&nbsp;</td>
@@ -53,7 +54,11 @@
         </tr>
         <?php endforeach; ?>
     </table>
+    </section>                  
     <?php echo $this->element('paginator'); ?>
+    </div><!-- /content-panel -->
+    </div><!-- /col-lg-4 -->			
+    </div><!-- /row -->  
 <?php 
 } else {
     echo $this->Html->tag('p','Não existem itens para listar');

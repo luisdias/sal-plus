@@ -1,7 +1,12 @@
-<h3><?php __('Mapa de recebimentos dos contratos');?></h3>
-<p>Contas a receber</p>
+<h3><i class="fa fa-angle-right"></i>Mapa de recebimentos dos contratos</h3>
 <?php if (!empty($contas_a_receber)) { ?>
-    <table class="listing" cellpadding = "0" cellspacing = "0">
+    <div class="row mt">
+    <div class="col-lg-12">
+    <div class="content-panel">
+    <h4><i class="fa fa-angle-right"></i>Contas a receber</h4>
+    <section id="no-more-tables">
+    <table class="table table-bordered table-striped table-condensed cf">
+    <thead class="cf">
     <tr>
         <th><?php __('Alerta'); ?></th>
         <th><?php __('Contrato'); ?></th>                
@@ -10,6 +15,7 @@
         <th><?php __('Dias'); ?></th>
         <th class="actions">Ações</th>
     </tr>
+    </thead>    
     <?php
     $i = 0;
     foreach ($contas_a_receber as $item):
@@ -19,8 +25,8 @@
         }
     ?>
     <tr<?php echo $class;?>>
-        <td class="tbl-col-1"><?php echo $this->element('bandeira_alerta',array('dias_restantes' => $item['Recebimento']['dias_restantes'])); ?></td>              
-        <td class="tbl-col-2"><?php echo $this->Html->link(
+        <td data-title="Alerta"><?php echo $this->element('bandeira_alerta',array('dias_restantes' => $item['Recebimento']['dias_restantes'])); ?></td>              
+        <td data-title="Contrato"><?php echo $this->Html->link(
             $item['Contrato']['numero'],
             array(
                 'controller'=>'contratos',
@@ -29,9 +35,9 @@
                 )
             );?>
         </td>                
-        <td class="tbl-col-3"><?php echo $item['Recebimento']['dt_vencto'];?></td>
-        <td class="tbl-col-4"><?php echo $this->element('dia_da_semana',array('int_dia_da_semana' => $item['Recebimento']['dia_da_semana'])); ?></td>
-        <td class="tbl-col-5"><?php echo $item['Recebimento']['dias_restantes'];?></td>                        
+        <td data-title="Vencto"><?php echo $item['Recebimento']['dt_vencto'];?></td>
+        <td data-title="Dia da semana"><?php echo $this->element('dia_da_semana',array('int_dia_da_semana' => $item['Recebimento']['dia_da_semana'])); ?></td>
+        <td data-title="Dias"><?php echo $item['Recebimento']['dias_restantes'];?></td>                        
 
     <td class="action_col">
         <?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('controller' => 'recebimentos','action' => 'view', $item['Recebimento']['id']),array('escape' => false)); ?>
@@ -42,6 +48,10 @@
     </tr>
     <?php endforeach; ?>
     </table>
+    </section>
+    </div><!-- /content-panel -->
+    </div><!-- /col-lg-4 -->			
+    </div><!-- /row --> 
 <?php } else { ?>
-    <p><b><i>Não existem contas a receber</i></b></p>
+    <div class="alert alert-info"><i class=" fa fa-ellipsis-v"></i>&nbsp;<b>Não existem contas a receber</b></div>
 <?php } ?>

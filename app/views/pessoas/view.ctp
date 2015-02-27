@@ -1,43 +1,44 @@
-<div class="pessoas view">
-<div class="table">
-    <table class="view" cellpadding="0" cellspacing="0">
-        <tr>
-            <th class="full" colspan="2">Pessoa</th>        </tr>    
-		<tr>
-		<td width="172"><strong><?php __('Id'); ?></strong></td>
-		<td width="574"><?php echo $pessoa['Pessoa']['id']; ?></td>
-		</tr>
-		<tr>
-		<td width="172"><strong><?php __('Nome'); ?></strong></td>
-		<td width="574"><?php echo $pessoa['Pessoa']['nome']; ?></td>
-		</tr>
-		<tr>
-		<td width="172"><strong><?php __('Email'); ?></strong></td>
-		<td width="574"><?php echo $pessoa['Pessoa']['email']; ?></td>
-		</tr>
-		<tr>
-		<td width="172"><strong><?php __('Telefone'); ?></strong></td>
-		<td width="574"><?php echo $pessoa['Pessoa']['telefone']; ?></td>
-		</tr>
-		<tr>
-		<td width="172"><strong><?php __('Celular'); ?></strong></td>
-		<td width="574"><?php echo $pessoa['Pessoa']['celular']; ?></td>
-		</tr>
-		<tr>
-		<td width="172"><strong><?php __('Fax'); ?></strong></td>
-		<td width="574"><?php echo $pessoa['Pessoa']['fax']; ?></td>
-		</tr>
-		<tr>
-		<td width="172"><strong><?php __('Website'); ?></strong></td>
-		<td width="574"><?php echo $pessoa['Pessoa']['website']; ?></td>
-		</tr>
-		<tr>
-		<td width="172"><strong><?php __('Papel'); ?></strong></td>
-		<td width="574"><?php echo $pessoa['Pessoa']['papel']; ?></td>
-		</tr>
-                <?php echo $this->element('adminfields_td',array('currentModel' => $pessoa['Pessoa'])); ?>
-    </table>
-</div>
-</div>
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="form-panel">
+            <h4 class="mb"><i class="fa fa-angle-right"></i> Pessoa</h4>
+            <div class="form-horizontal style-form">
+                <div class="form-group">
+                    <label class="col-sm-2">ID</label>
+                    <div class="col-sm-10"><?php echo $pessoa['Pessoa']['id']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Nome</label>
+                    <div class="col-sm-10"><?php echo $pessoa['Pessoa']['nome']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Email</label>
+                    <div class="col-sm-10"><?php echo $pessoa['Pessoa']['email']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Telefone</label>
+                    <div class="col-sm-10"><?php echo $pessoa['Pessoa']['telefone']; ?></div>
+                </div>                
+                <div class="form-group">
+                    <label class="col-sm-2">Celular</label>
+                    <div class="col-sm-10"><?php echo $pessoa['Pessoa']['celular']; ?></div>
+                </div>                 
+                <div class="form-group">
+                    <label class="col-sm-2">Fax</label>
+                    <div class="col-sm-10"><?php echo $pessoa['Pessoa']['fax']; ?></div>
+                </div> 
+                <div class="form-group">
+                    <label class="col-sm-2">Website</label>
+                    <div class="col-sm-10"><?php echo $pessoa['Pessoa']['website']; ?></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Papel</label>
+                    <div class="col-sm-10"><?php echo $pessoa['Pessoa']['papel']; ?></div>
+                </div>                
+                <?php echo $this->element('adminfields',array('currentModel' => $pessoa['Pessoa'])); ?>
+            </div>
+        </div>
+    </div>
+</div>                
 <?php echo $this->element('recursos',array('currentModel' => $pessoa)); ?>
 <!-- SALPLUS | Copyright: 2013 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->
