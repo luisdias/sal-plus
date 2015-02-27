@@ -1,0 +1,37 @@
+/* 
+    Created on : 19/02/2015, 15:22:33
+    Author     : Luis
+*/
+.top-bar { margin-top: 15px; width: 100%; float: left;}
+.top-bar a {float: right;}
+.filter-form { margin-top: 5px;}
+.filter-form label { margin-right: 5px;}
+.filter-form .form-control { margin-right: 5px;}
+.filter-form .submit{ margin-right: 5px;}
+.related-actions { margin-top: 8px; margin-bottom: 5px;}
+
+#tnt_pagination span {
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+}
+
+.btn-primary {
+color: #fff;
+background-color: #428bca;
+border-color: #357ebd;
+}
