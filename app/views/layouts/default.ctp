@@ -30,8 +30,7 @@
                 echo $this->Html->script(array("/assets/js/bootstrap.min.js"));
                 echo $this->Html->script(array("/assets/js/jquery.dcjqaccordion.2.7.js"));
                 echo $this->Html->script(array("/assets/js/jquery.scrollTo.min.js"));
-                echo $this->Html->script(array("/assets/js/jquery.nicescroll.js"));
-                echo $this->Html->script(array("/assets/js/common-scripts.js"));        
+                echo $this->Html->script(array("/assets/js/jquery.nicescroll.js"));                
                 echo $this->Html->script(array('default.js'));
 
                 echo $scripts_for_layout;
@@ -178,10 +177,7 @@
       </footer>
       <!--footer end-->
   </section>
-
-    
-
-    
+  <?php echo $this->Html->script(array("/assets/js/common-scripts.js")); ?> 
   <?php echo $this->element('sql_dump'); ?>  
   </body>
 </html>
