@@ -54,7 +54,7 @@
                     
                     echo '<div class="form-group">';
                     echo '<label class="col-sm-2 col-sm-2 control-label">';
-                    echo 1;
+                    echo __d('report_manager','Show items with no related records');
                     echo '</label>';
                     echo '<div class="col-sm-10">';
                     echo $this->Form->checkbox('Report.ShowNoRelated',array('hiddenField' => true,'checked'=>$showNoRelated,'div'=>'col-sm-10','class'=>'form-control'));
