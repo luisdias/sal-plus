@@ -27,7 +27,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     myLabelPrevious = "<?php echo __d('report_manager','Previous',true) ?>";
     myLabelFinish = "<?php echo __d('report_manager','Finish',true) ?>";
 </script>    
-<?php echo $this->Html->css('/report_manager/css/report_manager'); ?>
+
 <?php echo $this->Html->css('/report_manager/css/smart_wizard'); ?>
 
 <?php echo $this->Html->script(array('/report_manager/js/jquery.smartWizard-2.0.js','/report_manager/js/default.js')); ?>

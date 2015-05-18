@@ -13,6 +13,7 @@
 		<?php __('SAL PLUS - Sistema de Acompanhamento de Licitações e Contratos :'); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=.85, initial-scale=1.0, maximum-scale=1.0">
 	<?php
 		echo $this->Html->meta('icon');
 
@@ -97,7 +98,7 @@
                           <span>Licitações</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'licitacoes','action'=>'index')); ?>">Listar</a></li>
+                          <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'licitacoes','action'=>'index')); ?>">Licitações</a></li>
                           <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'eventos','action'=>'index')); ?>">Eventos</a></li>
                           <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'lotes','action'=>'index')); ?>">Lotes</a></li>
                           <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'resultados','action'=>'index')); ?>">Resultados</a></li>
@@ -116,7 +117,7 @@
                           <span>Contratos</span>
                       </a>
                       <ul class="sub">
-                        <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'contratos','action'=>'index')); ?>">Listar</a></li>
+                        <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'contratos','action'=>'index')); ?>">Contratos</a></li>
                         <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'aditivos','action'=>'index')); ?>">Aditivos</a></li>
                         <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'ocorrencias','action'=>'index')); ?>">Ocorrências</a></li>
                         <li><a  href="<?php echo $this->Html->url(array('plugin'=>null,'controller'=>'recursos','action'=>'index')); ?>">Recursos</a></li>

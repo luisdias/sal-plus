@@ -44,12 +44,20 @@
             <td><?php echo $this->Html->link($licitacao['Tipolicitacao']['title'], array('controller' => 'tipolicitacoes', 'action' => 'view', $licitacao['Tipolicitacao']['id'])); ?></td>
 
             <td class="actions">
-            <?php echo $this->Html->link($this->Html->image("comments.png", array("alt" => "Eventos","title" => "Eventos")), array('controller' => 'eventos', 'action' => 'index', 'fk' => $licitacao['Licitacao']['id'] ),array('escape' => false)); ?>
-            <?php echo $this->Html->link($this->Html->image("chart_organisation.png", array("alt" => "Lotes","title" => "Lotes")), array('controller' => 'lotes', 'action' => 'index', 'fk' => $licitacao['Licitacao']['id']),array('escape' => false)); ?>
-            <?php echo $this->Html->link($this->Html->image("award_star_gold_3.png", array("alt" => "Resultados","title" => "Resultados")), array('controller' => 'resultados', 'action' => 'index', 'fk' => $licitacao['Licitacao']['id']),array('escape' => false)); ?>
-            <?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('action' => 'view', $licitacao['Licitacao']['id']),array('escape' => false)); ?>
-            <?php echo $this->Html->link($this->Html->image("edit-icon.gif", array("alt" => "Editar","title" => "Editar")), array('action' => 'edit', $licitacao['Licitacao']['id']),array('escape' => false)); ?>
-            <?php echo $this->Html->link($this->Html->image("hr.gif", array("alt" => "Excluir","title" => "Excluir")), array('action' => 'delete', $licitacao['Licitacao']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir a licitação # %s?', true), $licitacao['Licitacao']['num_edital']) ); ?>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Selecione <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><?php echo $this->Html->link("Eventos", array('controller' => 'eventos', 'action' => 'index', 'fk' => $licitacao['Licitacao']['id'] ),array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link("Lotes", array('controller' => 'lotes', 'action' => 'index', 'fk' => $licitacao['Licitacao']['id']),array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link("Resultados", array('controller' => 'resultados', 'action' => 'index', 'fk' => $licitacao['Licitacao']['id']),array('escape' => false)); ?></li>
+                    <li class="divider"></li>
+                    <li><?php echo $this->Html->link("Consultar", array('action' => 'view', $licitacao['Licitacao']['id']),array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link("Editar",array('action' => 'edit', $licitacao['Licitacao']['id']),array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link("Excluir", array('action' => 'delete', $licitacao['Licitacao']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir a licitação # %s?', true), $licitacao['Licitacao']['num_edital']) ); ?></li>
+                  </ul>
+                </div>                 
             </td>            
         </tr>
         <?php endforeach; ?>

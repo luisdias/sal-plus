@@ -44,9 +44,16 @@
                     <td><?php echo $pessoa['Pessoa']['fax']; ?>&nbsp;</td>
                     <td><?php echo $pessoa['Pessoa']['papel']; ?>&nbsp;</td>
                     <td class="actions">
-                        <?php echo $this->Html->link($this->Html->image('page-find.gif', array('alt' => 'Consultar','title' => 'Consultar')), array('action' => 'view', $pessoa['Pessoa']['id']),array('escape' => false)); ?>
-                        <?php echo $this->Html->link($this->Html->image('edit-icon.gif', array('alt' => 'Editar','title' => 'Editar')), array('action' => 'edit', $pessoa['Pessoa']['id']),array('escape' => false)); ?>
-                        <?php echo $this->Html->link($this->Html->image('hr.gif', array('alt' => 'Excluir','title' => 'Excluir')), array('action' => 'delete', $pessoa['Pessoa']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir a pessoa %s?', true), $pessoa['Pessoa']['nome'])); ?>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Selecione <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><?php echo $this->Html->link($this->Html->image('page-find.gif', array('alt' => 'Consultar','title' => 'Consultar')), array('action' => 'view', $pessoa['Pessoa']['id']),array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link($this->Html->image('edit-icon.gif', array('alt' => 'Editar','title' => 'Editar')), array('action' => 'edit', $pessoa['Pessoa']['id']),array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link($this->Html->image('hr.gif', array('alt' => 'Excluir','title' => 'Excluir')), array('action' => 'delete', $pessoa['Pessoa']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir a pessoa %s?', true), $pessoa['Pessoa']['nome'])); ?></li>                              
+                          </ul>
+                        </div>                        
                     </td>
                 </tr>
                 <?php endforeach; ?>

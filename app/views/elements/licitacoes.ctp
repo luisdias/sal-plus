@@ -52,9 +52,16 @@
                     <td data-title="Valor"><span class="floatright"><?php echo $this->Number->format($licitacao['vlr_lic'],
                         array('places' => 2, 'before'=>'', 'escape' => false, 'decimals' => ',', 'thousands' => '.'));?></span></td>
                     <td class="actions">
-                        <?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('controller' => 'licitacoes', 'action' => 'view', $licitacao['id']),array('escape' => false)); ?>
-                        <?php echo $this->Html->link($this->Html->image("edit-icon.gif", array("alt" => "Editar","title" => "Editar")), array('controller' => 'licitacoes', 'action' => 'edit', $licitacao['id']),array('escape' => false)); ?>
-                        <?php echo $this->Html->link($this->Html->image("hr.gif", array("alt" => "Excluir","title" => "Excluir")), array('controller' => 'licitacoes', 'action' => 'delete', $licitacao['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $licitacao['id'])); ?>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Selecione <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                                <li><?php echo $this->Html->link("Consultar", array('controller' => 'licitacoes', 'action' => 'view', $licitacao['id']),array('escape' => false)); ?></li>
+                                <li><?php echo $this->Html->link("Editar", array('controller' => 'licitacoes', 'action' => 'edit', $licitacao['id']),array('escape' => false)); ?></li>
+                                <li><?php echo $this->Html->link("Excluir", array('controller' => 'licitacoes', 'action' => 'delete', $licitacao['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $licitacao['id'])); ?></li>
+                          </ul>
+                        </div>                         
                     </td>                        
                 </tr>
             <?php endforeach; ?>

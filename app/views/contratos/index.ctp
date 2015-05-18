@@ -57,15 +57,22 @@
             </td>
             <td><?php echo $contrato['Contrato']['numero_empenho']; ?>&nbsp;</td>
             <td class="actions" style="width:25%;">
-                    <?php echo $this->Html->link($this->Html->image("page_text.gif", array("alt" => "Aditivos",'title' => 'Aditivos')), array('controller' => 'aditivos', 'action' => 'index', 'fk' => $contrato['Contrato']['id'] ),array('escape' => false)); ?>                
-                    <?php echo $this->Html->link($this->Html->image("comments.png", array("alt" => "Ocorrências",'title' => 'Ocorrências')), array('controller' => 'ocorrencias', 'action' => 'index', 'fk' => $contrato['Contrato']['id'] ),array('escape' => false)); ?>
-                    <?php echo $this->Html->link($this->Html->image("group.png", array("alt" => "Recursos",'title' => 'Recursos')), array('controller' => 'recursos', 'action' => 'index', 'fk' => $contrato['Contrato']['id'] ),array('escape' => false)); ?>
-                    <?php echo $this->Html->link($this->Html->image("note_new.gif", array("alt" => "Recebimentos",'title' => 'Recebimentos')), array('controller' => 'recebimentos', 'action' => 'index', 'fk' => $contrato['Contrato']['id'] ),array('escape' => false)); ?>
-                
-                    <?php echo $this->Html->link($this->Html->image('image_new.gif', array('alt' => 'Documento','title' => 'Documento')), array('action' => 'file', $contrato['Contrato']['id']),array('escape' => false)); ?>                    
-                    <?php echo $this->Html->link($this->Html->image('page-find.gif', array('alt' => 'Consultar','title' => 'Consultar')), array('action' => 'view', $contrato['Contrato']['id']),array('escape' => false)); ?>
-                    <?php echo $this->Html->link($this->Html->image('edit-icon.gif', array('alt' => 'Editar','title' => 'Editar')), array('action' => 'edit', $contrato['Contrato']['id']),array('escape' => false)); ?>
-                    <?php echo $this->Html->link($this->Html->image('hr.gif', array('alt' => 'Excluir','title' => 'Excluir')), array('action' => 'delete', $contrato['Contrato']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o contrato # %s?', true), $contrato['Contrato']['numero'])); ?>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Selecione <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><?php echo $this->Html->link("Aditivos", array('controller' => 'aditivos', 'action' => 'index', 'fk' => $contrato['Contrato']['id'] ),array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link("Ocorrências", array('controller' => 'ocorrencias', 'action' => 'index', 'fk' => $contrato['Contrato']['id'] ),array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link("Recursos", array('controller' => 'recursos', 'action' => 'index', 'fk' => $contrato['Contrato']['id'] ),array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link("Recebimentos", array('controller' => 'recebimentos', 'action' => 'index', 'fk' => $contrato['Contrato']['id'] ),array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link('Documento', array('action' => 'file', $contrato['Contrato']['id']),array('escape' => false)); ?></li>
+                    <li class="divider"></li>
+                    <li><?php echo $this->Html->link('Consultar', array('action' => 'view', $contrato['Contrato']['id']),array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link('Editar', array('action' => 'edit', $contrato['Contrato']['id']),array('escape' => false)); ?></li>
+                    <li><?php echo $this->Html->link('Excluir', array('action' => 'delete', $contrato['Contrato']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o contrato # %s?', true), $contrato['Contrato']['numero'])); ?></li>
+                  </ul>
+                </div>                
             </td>
     </tr>
 <?php endforeach; ?>

@@ -34,9 +34,16 @@
                 <tr>
 		<td><?php echo $reajuste['Reajuste']['title']; ?>&nbsp;</td>
                     <td class="actions">
-                        <?php echo $this->Html->link($this->Html->image('page-find.gif', array('alt' => 'Consultar','title' => 'Consultar')), array('action' => 'view', $reajuste['Reajuste']['id']),array('escape' => false)); ?>
-                        <?php echo $this->Html->link($this->Html->image('edit-icon.gif', array('alt' => 'Editar','title' => 'Editar')), array('action' => 'edit', $reajuste['Reajuste']['id']),array('escape' => false)); ?>
-                        <?php echo $this->Html->link($this->Html->image('hr.gif', array('alt' => 'Excluir','title' => 'Excluir')), array('action' => 'delete', $reajuste['Reajuste']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o reajuste %s?', true), $reajuste['Reajuste']['title'])); ?>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Selecione <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><?php echo $this->Html->link('Consultar', array('action' => 'view', $reajuste['Reajuste']['id']),array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link('Editar', array('action' => 'edit', $reajuste['Reajuste']['id']),array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link('Excluir', array('action' => 'delete', $reajuste['Reajuste']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o reajuste %s?', true), $reajuste['Reajuste']['title'])); ?></li>                              
+                          </ul>
+                        </div>                        
                     </td>
                 </tr>
                 <?php endforeach; ?>

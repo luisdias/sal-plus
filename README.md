@@ -39,6 +39,7 @@
 * jQuery v1.9.1  
 * jQuery UI v1.10.1
 * EasyBox v1.3  
+* Crédito da foto login-bg.jpg : https://www.flickr.com/photos/agecombahia/4304483450/in/photostream/
 
 ## Instalação  
 

@@ -214,7 +214,7 @@ hr {
 }
 
 ul.top-menu > li > .logout {
-	color: #f2f2f2;
+	color: black;
 	font-size: 12px;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -413,8 +413,8 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: #ffd777;
-    border-bottom: 1px solid #c9aa5f;
+    background: #428bca;
+    border-bottom: 1px solid #43729f;
 }
 
 .wrapper {
@@ -743,6 +743,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .sidebar-toggle-box .fa-bars {
+    color: white;
     cursor: pointer;
     display: inline-block;
     font-size: 20px;

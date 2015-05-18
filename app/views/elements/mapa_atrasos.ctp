@@ -3,7 +3,7 @@
     <div class="col-lg-12">
     <div class="content-panel">
     <h4><i class="fa fa-angle-right"></i>Contas em atraso</h4>
-     <section id="no-more-tables">
+    <section id="no-more-tables">
     <table class="table table-bordered table-striped table-condensed cf">
     <thead class="cf">
     <tr>
@@ -32,9 +32,16 @@
         <td data-title="Dias restantes"><?php echo $item['Recebimento']['dias_restantes'];?></td>                        
 
     <td data-title="Ações">
-        <?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('controller' => 'recebimentos','action' => 'view', $item['Recebimento']['id']),array('escape' => false)); ?>
-        <?php echo $this->Html->link($this->Html->image("edit-icon.gif", array("alt" => "Editar","title" => "Editar")), array('controller' => 'recebimentos','action' => 'edit', $item['Recebimento']['id'], 'fk'=>$item['Recebimento']['contrato_id']),array('escape' => false)); ?>
-        <?php echo $this->Html->link($this->Html->image("hr.gif", array("alt" => "Excluir","title" => "Excluir")), array('controller' => 'recebimentos','action' => 'delete', $item['Recebimento']['id'], 'fk'=>$item['Recebimento']['contrato_id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir a conta de %s? do Contrato %s', true),$item['Recebimento']['dt_vencto'],$item['Contrato']['numero'])); ?>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Selecione <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->Html->link("Consultar", array('controller' => 'recebimentos','action' => 'view', $item['Recebimento']['id']),array('escape' => false)); ?></li>
+            <li><?php echo $this->Html->link("Editar", array('controller' => 'recebimentos','action' => 'edit', $item['Recebimento']['id'], 'fk'=>$item['Recebimento']['contrato_id']),array('escape' => false)); ?></li>
+            <li><?php echo $this->Html->link("Excluir", array('controller' => 'recebimentos','action' => 'delete', $item['Recebimento']['id'], 'fk'=>$item['Recebimento']['contrato_id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir a conta de %s? do Contrato %s', true),$item['Recebimento']['dt_vencto'],$item['Contrato']['numero'])); ?></li>              
+          </ul>
+        </div>        
     </td>
 
     </tr>

@@ -50,9 +50,16 @@
                     <?php echo $this->Html->link($recurso['Pessoa']['nome'], array('controller' => 'pessoas', 'action' => 'view', $recurso['Pessoa']['id'])); ?>
                 </td>
                 <td class="actions">
-                    <?php echo $this->Html->link($this->Html->image('page-find.gif', array('alt' => 'Consultar','title' => 'Consultar')), array('action' => 'view', $recurso['Recurso']['id']),array('escape' => false)); ?>
-                    <?php echo $this->Html->link($this->Html->image('edit-icon.gif', array('alt' => 'Editar','title' => 'Editar')), array('action' => 'edit', $recurso['Recurso']['id'],'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)),array('escape' => false)); ?>
-                    <?php echo $this->Html->link($this->Html->image('hr.gif', array('alt' => 'Excluir','title' => 'Excluir')), array('action' => 'delete', $recurso['Recurso']['id'],'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o recurso %s do contrato # %s?', true), $recurso['Pessoa']['nome'],$recurso['Contrato']['numero'])); ?>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        Selecione <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><?php echo $this->Html->link('Consultar', array('action' => 'view', $recurso['Recurso']['id']),array('escape' => false)); ?></li>
+                        <li><?php echo $this->Html->link('Editar', array('action' => 'edit', $recurso['Recurso']['id'],'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)),array('escape' => false)); ?></li>
+                        <li><?php echo $this->Html->link('Excluir', array('action' => 'delete', $recurso['Recurso']['id'],'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o recurso %s do contrato # %s?', true), $recurso['Pessoa']['nome'],$recurso['Contrato']['numero'])); ?></li>                          
+                      </ul>
+                    </div>                    
                 </td>
             </tr>
             <?php endforeach; ?>

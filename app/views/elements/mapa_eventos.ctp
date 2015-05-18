@@ -43,9 +43,16 @@
             <td data-title="Tipo"><?php echo $evento['Tipoevento']['title'];?></td>
 
         <td class="action_col">
-            <?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('controller' => 'eventos','action' => 'view', $evento['Evento']['id']),array('escape' => false)); ?>
-            <?php echo $this->Html->link($this->Html->image("edit-icon.gif", array("alt" => "Editar","title" => "Editar")), array('controller' => 'eventos','action' => 'edit', $evento['Evento']['id'], 'fk'=>$evento['Evento']['licitacao_id']),array('escape' => false)); ?>
-            <?php echo $this->Html->link($this->Html->image("hr.gif", array("alt" => "Excluir","title" => "Excluir")), array('controller' => 'eventos','action' => 'delete', $evento['Evento']['id'], 'fk'=>$evento['Evento']['licitacao_id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o evento do dia %s da Licitação %s?', true),$evento['Evento']['dt_eve'],$evento['Licitacao']['num_edital'])); ?>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Selecione <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><?php echo $this->Html->link("Consultar", array('controller' => 'eventos','action' => 'view', $evento['Evento']['id']),array('escape' => false)); ?></li>
+                <li><?php echo $this->Html->link("Editar", array('controller' => 'eventos','action' => 'edit', $evento['Evento']['id'], 'fk'=>$evento['Evento']['licitacao_id']),array('escape' => false)); ?></li>
+                <li><?php echo $this->Html->link("Excluir", array('controller' => 'eventos','action' => 'delete', $evento['Evento']['id'], 'fk'=>$evento['Evento']['licitacao_id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o evento do dia %s da Licitação %s?', true),$evento['Evento']['dt_eve'],$evento['Licitacao']['num_edital'])); ?></li>                  
+              </ul>
+            </div>                        
         </td>
 
         </tr>

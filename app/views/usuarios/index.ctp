@@ -40,13 +40,21 @@
             <td><?php echo $usuario['Usuario']['perfil']; ?>&nbsp;</td>
 
             <td class="actions">
-            <?php echo $this->Html->link($this->Html->image("key.png", array("alt" => "Senha","title" => "Senha")), array('action' => 'senha', $usuario['Usuario']['id']),array('escape' => false)); ?>
-            <?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('action' => 'view', $usuario['Usuario']['id']),array('escape' => false)); ?>
-            <?php echo $this->Html->link($this->Html->image("edit-icon.gif", array("alt" => "Editar","title" => "Editar")), array('action' => 'edit', $usuario['Usuario']['id']),array('escape' => false)); ?>
-            <?php
-            // não permite excluir o utilizador de id = 1
-            if ( $usuario['Usuario']['id'] > 1 )
-                echo $this->Html->link($this->Html->image("hr.gif", array("alt" => "Excluir","title" => "Excluir")), array('action' => 'delete', $usuario['Usuario']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o usuário %s?', true),$usuario['Usuario']['name'])); ?>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Selecione <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                        <li><?php echo $this->Html->link("Senha", array('action' => 'senha', $usuario['Usuario']['id']),array('escape' => false)); ?></li>
+                        <li class="divider"></li>
+                        <li><?php echo $this->Html->link("Consultar", array('action' => 'view', $usuario['Usuario']['id']),array('escape' => false)); ?></li>
+                        <li><?php echo $this->Html->link("Editar", array('action' => 'edit', $usuario['Usuario']['id']),array('escape' => false)); ?></li>
+                        <li><?php
+                        // não permite excluir o utilizador de id = 1
+                        if ( $usuario['Usuario']['id'] > 1 )
+                            echo $this->Html->link("Excluir", array('action' => 'delete', $usuario['Usuario']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o usuário %s?', true),$usuario['Usuario']['name'])); ?></li>
+                  </ul>
+                </div>                 
             </td>
 	</tr>        
         <?php endforeach; ?>

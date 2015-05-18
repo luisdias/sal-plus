@@ -56,9 +56,16 @@
                     <?php echo $this->Html->link($ocorrencia['Tipoocorrencia']['title'], array('controller' => 'tipoocorrencias', 'action' => 'view', $ocorrencia['Tipoocorrencia']['id'])); ?>
             </td>
             <td class="actions">
-                    <?php echo $this->Html->link($this->Html->image('page-find.gif', array('alt' => 'Consultar','title' => 'Consultar')), array('action' => 'view', $ocorrencia['Ocorrencia']['id']),array('escape' => false)); ?>
-                    <?php echo $this->Html->link($this->Html->image('edit-icon.gif', array('alt' => 'Editar','title' => 'Editar')), array('action' => 'edit', $ocorrencia['Ocorrencia']['id'],'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)),array('escape' => false)); ?>
-                    <?php echo $this->Html->link($this->Html->image('hr.gif', array('alt' => 'Excluir','title' => 'Excluir')), array('action' => 'delete', $ocorrencia['Ocorrencia']['id'],'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)),array('escape' => false), sprintf(__('Tem certeza que deseja excluir a ocorrência da data %s?', true), $ocorrencia['Ocorrencia']['dt_ocorrencia'])); ?>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Selecione <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                      <li><?php echo $this->Html->link($this->Html->image('page-find.gif', array('alt' => 'Consultar','title' => 'Consultar')), array('action' => 'view', $ocorrencia['Ocorrencia']['id']),array('escape' => false)); ?></li>
+                      <li><?php echo $this->Html->link($this->Html->image('edit-icon.gif', array('alt' => 'Editar','title' => 'Editar')), array('action' => 'edit', $ocorrencia['Ocorrencia']['id'],'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)),array('escape' => false)); ?></li>
+                      <li><?php echo $this->Html->link($this->Html->image('hr.gif', array('alt' => 'Excluir','title' => 'Excluir')), array('action' => 'delete', $ocorrencia['Ocorrencia']['id'],'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)),array('escape' => false), sprintf(__('Tem certeza que deseja excluir a ocorrência da data %s?', true), $ocorrencia['Ocorrencia']['dt_ocorrencia'])); ?></li>
+                  </ul>
+                </div>                
             </td>
             </tr>
             <?php endforeach; ?>

@@ -59,18 +59,18 @@ class ReportsController extends AppController {
             $this->set('files',$this->listReports());
             $this->set('models',$models);
         } else {
-            if (isset($this->data['new'])) {
+            if (isset($this->data['new'])) {              
                 $reportButton = 'new';
                 $modelClass = $this->data['model'];
                 $oneToManyOption = $this->data['one_to_many_option'];
-                $this->redirect(array('action'=>'wizard',$reportButton, $modelClass, $oneToManyOption));
-            }
+                $this->redirect(array('action'=>'wizard',$reportButton, $modelClass, $oneToManyOption));                
+            } 
                 
             if (isset($this->data['load'])) {
                 $reportButton = 'load';
                 $fileName = $this->data['saved_report_option'];
                 $this->redirect(array('action'=>'wizard',$reportButton, urlencode($fileName)));                
-            }
+            } 
                 
             $this->redirect(array('action'=>'index'));
         }

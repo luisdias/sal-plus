@@ -28,10 +28,10 @@ $(document).ready(function() {
             dataType: 'text',
             data: "model=" + $(this).val(),
             success: function(oneToManyOptions){
-                $('#ReportManagerOneToManyOption').html(oneToManyOptions);
+                $('#one_to_many_option').html(oneToManyOptions);
             },
             error: function(msg) { 
-                $('#ReportManagerOneToManyOption').html('< Ajax Error >');
+                $('#one_to_many_option').html('< Ajax Error >');
             }
             });    
         }        
@@ -45,10 +45,10 @@ $(document).ready(function() {
             url: firstLevel+"report_manager/reports/deleteReport/"+report,
             dataType: 'text',
             success: function(reportList){
-                $('#ReportManagerSavedReportOptionContainer').html(reportList);
+                $('#saved_report_option').html(reportList);
             },
             error: function(msg) { 
-                $('#ReportManagerSavedReportOptionContainer').html('< Ajax Error >');
+                $('#saved_report_option').html('< Ajax Error >');
             }
             });    
         }

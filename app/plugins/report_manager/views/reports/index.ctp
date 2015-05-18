@@ -30,66 +30,85 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ?>
 
 <?php echo $this->Html->script('/report_manager/js/index.js'); ?>
-<?php echo $this->Html->css('/report_manager/css/report_manager'); ?>
 <div class="reportManager index">
     <h2><?php echo __d('report_manager','Report Manager',true);?></h2>
-    <?php
-        
-        echo '<div id="repoManLeftCol">';
-        echo $this->Form->create();
-        echo '<fieldset>';
-        echo '<legend>' . __d('report_manager','New report',true) . '</legend>';        
-        echo $this->Form->input('model',array(
-            'type'=>'select',            
-            'label'=>__d('report_manager','Model',true),
-            'options'=>$models,
-            'empty'=>__d('report_manager','--Select--',true)
-            ));
-        
-        echo '<div id="ReportManagerOneToManyOption">';
-        echo $this->Form->input('one_to_many_option',array(
-            'type'=>'select',
-            'label'=>__d('report_manager','One to many option',true),
-            'options'=>array(),
-            'empty'=>__d('report_manager','<None>',true)
-            ));
-        echo '</div>';
-        echo $this->Form->input('new',array(
-            'type'=>'hidden',
-            'value'=>'1'
-            ));        
-        echo '</fieldset>';
-        echo $this->Form->submit(__d('report_manager','New',true),array('name'=>'new'));
-        echo $this->Form->end();
-        echo '</div>';
-        
-        echo '<div id="repoManMiddleCol">';
-        
-        echo $this->Html->tag('h2',__d('report_manager','OR',true));
-        
-        echo '</div>';
-        
-        echo '<div id="repoManRightCol">';
-        echo $this->Form->create();
-        echo '<fieldset>';
-        echo '<legend>' . __d('report_manager','Load report',true) . '</legend>';        
-        
-        echo '<div id="ReportManagerSavedReportOptionContainer">';
-        echo $this->Form->input('saved_report_option',array(
-            'type'=>'select',
-            'label'=>__d('report_manager','Saved reports',true),
-            'options'=>$files,
-            'empty'=>__d('report_manager','--Select--',true)
-            ));
-        echo '</div>';
-        echo $this->Form->input('load',array(
-            'type'=>'hidden',
-            'value'=>'1'
-            ));        
-        echo '<button type="button" class="deleteReport">' . __d('report_manager','Delete',true) . '</button>';
-        echo '</fieldset>';
-        echo $this->Form->submit(__d('report_manager','Load',true),array('name'=>'load'));
-        echo $this->Form->end();
-        echo '</div>';
-    ?>
+    <div class="row">        
+        <div class="col-lg-6 col-md-6 col-sm-6 mb">
+            <div class="grey-panel pn form-horizontal style-form">
+            <?php
+                echo "<div class=\"product-panel-2 pn\">";
+                echo $this->Form->create();                
+                echo '<div class="grey-header"><h5>' . __d('report_manager','New report',true) . '</h5></div>';
+                echo "<h5>";
+                echo __d('report_manager','Model',true);
+                echo "</h5>";
+                echo "<h5>";
+                echo $this->Form->input('model',array(
+                    'type'=>'select',            
+                    'label'=>false,
+                    'options'=>$models,
+                    'empty'=>__d('report_manager','--Select--',true),
+                    'class'=>'form-control'
+                    ));
+                echo "</h5>";
+                             
+                echo "<h5>";
+                echo __d('report_manager','One to many option',true);
+                echo "</h5>";
+                echo "<h5>";
+                echo $this->Form->input('one_to_many_option',array(
+                    'type'=>'select',
+                    'label'=>false,
+                    'options'=>array(),
+                    'empty'=>__d('report_manager','<None>',true),
+                    'class'=>'form-control'
+                    ));
+                echo "</h5>";
+                
+                echo "<input type=\"hidden\" name=\"data[new]\" value=\"1\" id=\"new\">"; 
+       
+                echo "<h5>";
+                echo $this->Form->submit(__d('report_manager','New',true),array('name'=>'new','class'=>'btn btn-primary','div'=>false));
+                echo "</h5>";                
+                echo $this->Form->end();
+                echo "</div>"; 
+            ?>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 mb">
+            <div class="grey-panel pn form-horizontal style-form">
+            <?php
+                echo "<div class=\"product-panel-2 pn\">";
+                echo $this->Form->create();
+                echo '<div class="grey-header"><h5>' . __d('report_manager','Load report',true) . '</h5></div>';
+                echo "<h5>";
+                echo __d('report_manager','Saved reports',true);
+                echo "</h5>";
+
+                echo "<h5>";
+                echo $this->Form->input('saved_report_option',array(
+                    'type'=>'select',
+                    'label'=>false,
+                    'options'=>$files,
+                    'empty'=>__d('report_manager','--Select--',true),
+                    'class'=>'form-control'                    
+                    ));
+                echo '</h5>';
+                
+                echo '<input type="hidden" name="data[load]" value="1" id="load">';      
+                
+                echo "<h5>";                  
+                echo '<button type="button" class="deleteReport btn btn-primary">' . __d('report_manager','Delete',true) . '</button>';
+                echo "</h5>";  
+                
+                echo "<h5>";                                
+                echo $this->Form->submit(__d('report_manager','Load',true),array('name'=>'load','class'=>'btn btn-primary','div'=>false));
+                echo '</h5>';
+                echo $this->Form->end();
+                echo '</div>';
+            ?>
+            </div>
+        </div>
+    </div>
+    
 </div>

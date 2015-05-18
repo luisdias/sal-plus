@@ -30,9 +30,16 @@
                     <td data-title="Nota final"><span class="floatright"><?php echo $resultado['nota_final'];?></span></td>                        
                     <td data-title="Vencedor"><?php echo ( $resultado['vencedor'] == 0 ? 'N' : 'S' );?></td>
                     <td class="actions">
-                        <?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('controller' => 'resultados', 'action' => 'view', $resultado['id']),array('escape' => false)); ?>
-                        <?php echo $this->Html->link($this->Html->image("edit-icon.gif", array("alt" => "Editar","title" => "Editar")), array('controller' => 'resultados', 'action' => 'edit', $resultado['id']),array('escape' => false)); ?>
-                        <?php echo $this->Html->link($this->Html->image("hr.gif", array("alt" => "Excluir","title" => "Excluir")), array('controller' => 'resultados', 'action' => 'delete', $resultado['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $resultado['id'])); ?>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Selecione <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><?php echo $this->Html->link("Consultar", array('controller' => 'resultados', 'action' => 'view', $resultado['id']),array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link("Editar", array('controller' => 'resultados', 'action' => 'edit', $resultado['id']),array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link("Excluir", array('controller' => 'resultados', 'action' => 'delete', $resultado['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $resultado['id'])); ?></li>
+                          </ul>
+                        </div>                        
                     </td>                        
                 </tr>
             <?php endforeach; ?>

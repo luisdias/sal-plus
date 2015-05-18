@@ -20,9 +20,16 @@
                     <td data-title="Texto" style="text-align: left;"><?php echo $evento['texto_eve'];?></td>
                     <td data-title="Tipo"><?php echo $tipoeventos[$evento['tipoevento_id']];?></td>
                     <td class="actions">
-                            <?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('controller' => 'eventos', 'action' => 'view', $evento['id']),array('escape' => false)); ?>
-                            <?php echo $this->Html->link($this->Html->image("edit-icon.gif", array("alt" => "Editar","title" => "Editar")), array('controller' => 'eventos', 'action' => 'edit', $evento['id']),array('escape' => false)); ?>
-                            <?php echo $this->Html->link($this->Html->image("hr.gif", array("alt" => "Excluir","title" => "Excluir")), array('controller' => 'eventos', 'action' => 'delete', $evento['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $evento['id'])); ?>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Selecione <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><?php echo $this->Html->link("Consultar", array('controller' => 'eventos', 'action' => 'view', $evento['id']),array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link("Editar", array('controller' => 'eventos', 'action' => 'edit', $evento['id']),array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link("Excluir", array('controller' => 'eventos', 'action' => 'delete', $evento['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $evento['id'])); ?></li>
+                          </ul>
+                        </div>                        
                     </td>                          
                 </tr>
             <?php endforeach; ?>
