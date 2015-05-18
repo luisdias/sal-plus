@@ -83,7 +83,7 @@
     </div><!-- /row -->
 <?php 
 } else {
-    echo $this->Html->tag('span','Não existem itens para listar',array('class'=>'info-msg','div'=>'false'));
+    echo '<div style="clear:both;" class="alert alert-info"><i class=" fa fa-ellipsis-v"></i>&nbsp;<b>Não existem itens para listar</b></div>';
 } ?>     
 </div>
 </div>

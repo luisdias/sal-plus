@@ -58,7 +58,7 @@
     </div> 
 <?php 
 } else {
-    echo $this->Html->tag('p','Não existem itens para listar');
+    echo '<div style="clear:both;" class="alert alert-info"><i class=" fa fa-ellipsis-v"></i>&nbsp;<b>Não existem itens para listar</b></div>';
 } ?>       
 </div>
 <!-- SALPLUS | Copyright: 2013 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->
