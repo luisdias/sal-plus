@@ -45,15 +45,26 @@
                     <?php echo $this->Html->link($contrato['Licitacao']['num_edital'], array('controller' => 'licitacoes', 'action' => 'view', $contrato['Licitacao']['id'])); ?>
             </td>
             <td>
+                <div class="project-wrapper">
+                    <div class="project">                
+                        <div class="photo-wrapper">
+                            <div class="photo">
+                                <center>                
                 <?php 
                 if (!empty($contrato['Contrato']['documento'])) {
                     echo $this->Html->link(
-                            $this->Html->image(str_replace('img/','',h($contrato['Contrato']['documento'])),array('width'=>'50','height'=>'50'))
-                         ,'/' .  $contrato['Contrato']['documento'],array('escape' => false,'target'=>'blank','class'=>"lightbox"));
+                            $this->Html->image(str_replace('img/','',h($contrato['Contrato']['documento'])),array('width'=>'70','height'=>'70'))
+                         ,'/' .  $contrato['Contrato']['documento'],array('escape' => false,'class'=>"fancybox"));
                 } else {
-                    echo $this->Html->image('contratos/sem-documento.png',array('width'=>'50','height'=>'50'));
+                    echo $this->Html->image('contratos/sem-documento.png',array('width'=>'70','height'=>'70'));
                 };
                 ?>&nbsp;
+                                </center>
+                            </div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                </div>                
             </td>
             <td><?php echo $contrato['Contrato']['numero_empenho']; ?>&nbsp;</td>
             <td class="actions" style="width:25%;">
@@ -88,4 +99,12 @@
             echo '<div style="clear:both;" class="alert alert-info"><i class=" fa fa-ellipsis-v"></i>&nbsp;<b>Não existem itens para listar</b></div>';
         } ?>                           
 </div>
+<?php echo $this->Html->script(array("/assets/js/fancybox/jquery.fancybox.js")); ?>
+<script type="text/javascript">
+    $(function() {
+      //    fancybox
+        jQuery(".fancybox").fancybox();
+    });
+
+</script>
 <!-- SALPLUS | Copyright: 2013 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->

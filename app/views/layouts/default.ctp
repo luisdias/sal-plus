@@ -24,11 +24,13 @@
                 echo $this->Html->css("/assets/css/table-responsive.css");
                 echo $this->Html->css("/assets/css/salplus.css");                
                 echo $this->Html->css('jquery-ui/ui-lightness/jquery-ui-1.10.2.custom.min');                
+                echo $this->Html->css("/assets/js/fancybox/jquery.fancybox.css");
                 
                 echo $this->Html->script(array("/assets/js/jquery.js"));
                 echo $this->Html->script(array('jquery-ui/js/jquery-ui-1.10.2.custom.min'));
                 echo $this->Html->script('jquery-ui/js/jquery.ui.datepicker-pt');     
                 echo $this->Html->script(array("/assets/js/bootstrap.min.js"));
+               
                 echo $this->Html->script(array("/assets/js/jquery.dcjqaccordion.2.7.js"));
                 echo $this->Html->script(array("/assets/js/jquery.scrollTo.min.js"));
                 echo $this->Html->script(array("/assets/js/jquery.nicescroll.js"));                

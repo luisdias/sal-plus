@@ -66,15 +66,26 @@
                 <?php echo $this->Html->link($aditivo['Tipoaditivo']['title'], array('controller' => 'tipoaditivos', 'action' => 'view', $aditivo['Tipoaditivo']['id'])); ?>
             </td>
             <td class="hidden-phone">
+                <div class="project-wrapper">
+                    <div class="project">                
+                        <div class="photo-wrapper">
+                            <div class="photo">
+                                <center>
                 <?php 
                 if (!empty($aditivo['Aditivo']['documento'])) {
                     echo $this->Html->link(
-                            $this->Html->image(str_replace('img/','',h($aditivo['Aditivo']['documento'])),array('width'=>'50','height'=>'50'))
-                         ,'/' .  $aditivo['Aditivo']['documento'],array('escape' => false,'target'=>'blank','class'=>"lightbox"));
+                            $this->Html->image(str_replace('img/','',h($aditivo['Aditivo']['documento'])),array('width'=>'70','height'=>'70'))
+                         ,'/' .  $aditivo['Aditivo']['documento'],array('escape' => false,'class'=>"fancybox"));
                 } else {
-                    echo $this->Html->image('aditivos/sem-documento.png',array('width'=>'50','height'=>'50'));
+                    echo $this->Html->image('aditivos/sem-documento.png',array('width'=>'70','height'=>'70'));
                 };
                 ?>&nbsp;
+                                </center>
+                            </div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                </div>
             </td>            
             <td>
                 <div class="btn-group">
@@ -105,4 +116,12 @@
             echo '<div style="clear:both;" class="alert alert-info"><i class=" fa fa-ellipsis-v"></i>&nbsp;<b>Não existem itens para listar</b></div>';
         } ?>                           
 </div>
-<!-- SALPLUS | Copyright: 2013 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->
+<?php echo $this->Html->script(array("/assets/js/fancybox/jquery.fancybox.js")); ?>
+<script type="text/javascript">
+    $(function() {
+      //    fancybox
+        jQuery(".fancybox").fancybox();
+    });
+
+</script>
+<!-- SALPLUS | Copyright: 2013-2015 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->
