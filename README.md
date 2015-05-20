@@ -2,6 +2,9 @@
 
 ## Sistema para empresas privadas que participam de licitações públicas no Brasil
 
+**Changelog da versão 2.1**  
+* enhancement: Novo design responsive com bootstrap  
+
 **Changelog da versão 2.0**  
 * new feature: Aditivos  
 * new feature: Contratos  
@@ -35,11 +38,12 @@
 
 ## Notas  
 
-* CakePHP 1.3.16  
+* CakePHP 1.3.20  
 * jQuery v1.9.1  
 * jQuery UI v1.10.1
-* EasyBox v1.3  
+* FancyBox v2.1.5  
 * Crédito da foto login-bg.jpg : https://www.flickr.com/photos/agecombahia/4304483450/in/photostream/
+* Based on Dashgum Bootstrap Free Dashboard
 
 ## Instalação  
 
