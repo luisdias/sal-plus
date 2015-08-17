@@ -41,7 +41,7 @@
             </tr>
             </thead>
             <?php foreach ($currentModel['Licitacao'] as $licitacao): ?>
-                <tr<?php echo $class;?>>
+                <tr>
                     <td data-title="Status"><?php echo $licitacao['status'];?></td>
                     <td data-title="Edital"><?php echo $licitacao['num_edital'];?></td>
                     <td data-title="Código"><?php echo $licitacao['cl'];?></td>
