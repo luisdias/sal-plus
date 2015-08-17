@@ -38,6 +38,6 @@
     </div><!-- /col-lg-4 -->			
     </div><!-- /row -->             
     <div class="related-actions">
-    <?php echo $this->Html->link(__('Novo Recurso', true), array('controller' => 'recursos', 'action' => 'add', 'fk'=>$currentModel['Contrato']['id']),array('class'=>'btn btn-primary'));?> </li>
+    <?php echo $this->Html->link(__('Novo Recurso', true), array('controller' => 'recursos', 'action' => 'add'),array('class'=>'btn btn-primary'));?> </li>
     </div>
 </div>
