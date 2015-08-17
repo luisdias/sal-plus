@@ -3,15 +3,15 @@
         <div class="form-panel">
         <?php echo $this->Form->create('Ocorrencia',array('class'=>'form-horizontal style-form'));?>
         <fieldset>
-                <legend>
-                <?php 
-                if ( $this->action == 'add' )
-                    $theAction = 'Nova';
-                else
-                    $theAction = 'Editar';
-                __($theAction . ' Ocorrência'); 
-                ?>                        
-                </legend>
+			<legend>
+			<?php 
+			if ( $this->action == 'add' )
+				$theAction = 'Nova';
+			else
+				$theAction = 'Editar';
+			__($theAction . ' Ocorrência'); 
+			?>                        
+			</legend>
         <?php
         echo $this->Form->input('id');        
         if ( isset($this->passedArgs['fk']) ) {
@@ -25,7 +25,7 @@
         echo "<div class=\"form-group\">";
         echo $this->Form->label('contrato_id','Contrato',array('class'=>'col-sm-2 control-label'));
         if ( !is_null($fk) ) {
-            echo $this->Form->input('contrato_id',array('disabled'=>'true','label'=>'Contrato','value'=>$fk));
+            echo $this->Form->input('contrato_id',array('label'=>false,'div'=>'col-sm-10','class'=>'form-control','disabled'=>'true','value'=>$fk));
             echo $this->Form->input('contrato_id',array('type'=>'hidden','value'=>$fk));                                    
         } else {
             echo $this->Form->input('contrato_id',array('label'=>false,'div'=>'col-sm-10','class'=>'form-control','empty'=>'-- Selecione o contrato --'));
@@ -50,7 +50,7 @@
         echo $this->Form->input('modified_by',array('label'=>'Modificado por','type'=>'hidden'));
         if ( !is_null($fk) )                
             echo $this->Form->input('fk',array('type'=>'hidden','value'=>$fk));                
-?>
+		?>
         </fieldset>
         <?php echo $this->Form->submit('Gravar',array('class'=>'btn btn-primary')); ?>
         <?php echo $this->Form->end();?>
