@@ -2241,4 +2241,4 @@ label {
     min-height: 900px;
 }
 
-
+.error-message { color: red; font-weight: bold; }
