@@ -1,7 +1,7 @@
 <div class="row mt">
     <div class="col-lg-12">
         <div class="form-panel">
-            <h4 class="mb"><i class="fa fa-angle-right"></i> Situação</h4>
+            <h4 class="mb"><i class="fa fa-angle-right"></i> Tipo de Ocorrência</h4>
             <div class="form-horizontal style-form">
                 <div class="form-group">
                     <label class="col-sm-2">ID</label>
