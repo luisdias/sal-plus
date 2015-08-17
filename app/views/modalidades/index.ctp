@@ -39,9 +39,9 @@
                     Selecione <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                      <li><?php echo $this->Html->link($this->Html->image("page-find.gif", array("alt" => "Consultar","title" => "Consultar")), array('action' => 'view', $modalidade['Modalidade']['id']),array('escape' => false)); ?></li>
-                      <li><?php echo $this->Html->link($this->Html->image("edit-icon.gif", array("alt" => "Editar","title" => "Editar")), array('action' => 'edit', $modalidade['Modalidade']['id']),array('escape' => false)); ?></li>
-                      <li><?php echo $this->Html->link($this->Html->image("hr.gif", array("alt" => "Excluir","title" => "Excluir")), array('action' => 'delete', $modalidade['Modalidade']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir a modalidade %s?', true),$modalidade['Modalidade']['title'])); ?></li>
+                      <li><?php echo $this->Html->link("Consultar", array('action' => 'view', $modalidade['Modalidade']['id']),array('escape' => false)); ?></li>
+                      <li><?php echo $this->Html->link("Editar", array('action' => 'edit', $modalidade['Modalidade']['id']),array('escape' => false)); ?></li>
+                      <li><?php echo $this->Html->link("Excluir", array('action' => 'delete', $modalidade['Modalidade']['id']),array('escape' => false), sprintf(__('Tem certeza que deseja excluir a modalidade %s?', true),$modalidade['Modalidade']['title'])); ?></li>
                   </ul>
                 </div>                 
             </td>
