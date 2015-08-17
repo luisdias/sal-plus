@@ -68,47 +68,5 @@
         </div>
     </div>
 </div>  
-<div class="related">
-	<h3><?php __('Resultados relacionados');?></h3>
-	<?php if (!empty($empresa['Resultado'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('Licitação'); ?></th>
-		<th><?php __('Habilitação'); ?></th>
-		<th><?php __('Nota Técnica'); ?></th>
-		<th><?php __('Preço'); ?></th>
-		<th><?php __('Desconto'); ?></th>
-		<th><?php __('Nota de preço'); ?></th>
-		<th><?php __('Nota final'); ?></th>
-		<th><?php __('Vencedor'); ?></th>
-                <th class="actions"><?php __('Ações');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($empresa['Resultado'] as $resultado):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $licitacoes[$resultado['licitacao_id']];?></td>
-			<td><?php echo ( $resultado['habilitacao'] == 0 ? 'N' : 'S' );?></td>                        
-			<td><?php echo $resultado['nota_tecnica'];?></td>
-			<td><?php echo $resultado['preco'];?></td>
-			<td><?php echo $resultado['desconto'];?></td>
-			<td><?php echo $resultado['nota_de_preco'];?></td>
-			<td><?php echo $resultado['nota_final'];?></td>
-			<td><?php echo ( $resultado['vencedor'] == 0 ? 'N' : 'S' );?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('Consultar', true), array('controller' => 'resultados', 'action' => 'view', $resultado['id'])); ?>
-				<?php echo $this->Html->link(__('Editar', true), array('controller' => 'resultados', 'action' => 'edit', $resultado['id'])); ?>
-				<?php echo $this->Html->link(__('Excluir', true), array('controller' => 'resultados', 'action' => 'delete', $resultado['id']), null, sprintf(__('Tem certeza que deseja excluir o item # %s?', true), $resultado['id'])); ?>
-			</td>                        
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-</div>
 <?php echo $this->element('resultados',array('currentModel' => $empresa)); ?>
 <!-- SALPLUS | Copyright: 2013 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->
