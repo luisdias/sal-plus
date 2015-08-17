@@ -163,6 +163,7 @@
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper">
+		<?php echo $this->Session->flash(); ?>
         <?php echo $content_for_layout; ?>
         </section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->
