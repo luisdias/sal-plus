@@ -77,17 +77,17 @@
                                 
                 echo "<div class=\"form-group\">";
                 echo $this->Form->label('dt_conclusao','Conclusão',array('class'=>'col-sm-2 control-label'));                                
-                echo $this->Form->input('dt_conclusao',array('type'=>'text','label'=>false,'div'=>'col-sm-10','class'=>'datepicker','size'=>'10','class'=>'form-control'));
+                echo $this->Form->input('dt_conclusao',array('type'=>'text','label'=>false,'div'=>'col-sm-10','class'=>'datepicker form-control','size'=>'10'));
                 echo "</div>";
                                 
                 echo "<div class=\"form-group\">";
                 echo $this->Form->label('dt_assinatura','Assinatura',array('class'=>'col-sm-2 control-label'));                                
-                echo $this->Form->input('dt_assinatura',array('type'=>'text','label'=>false,'div'=>'col-sm-10','class'=>'datepicker','size'=>'10','class'=>'form-control'));
+                echo $this->Form->input('dt_assinatura',array('type'=>'text','label'=>false,'div'=>'col-sm-10','class'=>'datepicker form-control','size'=>'10'));
                 echo "</div>";
                 
                 echo "<div class=\"form-group\">";
                 echo $this->Form->label('dt_publicacao','Publicação',array('class'=>'col-sm-2 control-label'));                                
-                echo $this->Form->input('dt_publicacao',array('type'=>'text','label'=>false,'div'=>'col-sm-10','class'=>'datepicker','size'=>'10','class'=>'form-control'));                
+                echo $this->Form->input('dt_publicacao',array('type'=>'text','label'=>false,'div'=>'col-sm-10','class'=>'datepicker form-control','size'=>'10'));                
                 echo "</div>";
                 
                 echo "<div class=\"form-group\">";
