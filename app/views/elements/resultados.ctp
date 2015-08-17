@@ -8,7 +8,7 @@
         <table class="table table-bordered table-striped table-condensed cf">
             <thead class="cf">
             <tr>
-                <th>Razão Social</th>
+				<th>Licitação</th>
                 <th>Habilitação</th>
                 <th>Nota técnica</th>
                 <th>Preço</th>
@@ -21,8 +21,8 @@
             </thead>
             <?php foreach ($currentModel['Resultado'] as $resultado): ?>
                 <tr>
-                    <td data-title="Razão Social"><?php echo $empresas[$resultado['empresa_id']];?></td>
-                    <td data-title="Habilitação"><?php echo ( $resultado['habilitacao'] == 0 ? 'N' : 'S' );?></td>                       
+					<td data-title="Licitação"><?php echo $licitacoes[$resultado['licitacao_id']];?></td>
+                    <td data-title="Habilitação"><?php echo ( $resultado['habilitacao'] == 0 ? 'N' : 'S' );?></td>
                     <td data-title="Nota técnica"><span class="floatright"><?php echo $resultado['nota_tecnica'];?></span></td>
                     <td data-title="Preço"><span class="floatright"><?php echo $resultado['preco'];?></span></td>
                     <td data-title="Desconto"><span class="floatright"><?php echo $resultado['desconto'];?></span></td>
@@ -50,6 +50,6 @@
     </div><!-- /col-lg-4 -->			
     </div><!-- /row -->              
     <div class="related-actions">
-    <?php echo $this->Html->link(__('Novo Resultado', true), array('controller' => 'resultados', 'action' => 'add', 'fk'=>$currentModel['Licitacao']['id']),array('class'=>'btn btn-primary'));?> </li>
+    <?php echo $this->Html->link(__('Novo Resultado', true), array('controller' => 'resultados', 'action' => 'add'),array('class'=>'btn btn-primary'));?> </li>
     </div>        
 </div>
