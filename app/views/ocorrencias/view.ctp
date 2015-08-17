@@ -22,10 +22,10 @@
                 <div class="form-group">
                     <label class="col-sm-2">Tipo</label>
                     <div class="col-sm-10"><?php echo $this->Html->link($ocorrencia['Tipoocorrencia']['title'], array('controller' => 'tipoocorrencias', 'action' => 'view', $ocorrencia['Tipoocorrencia']['id'])); ?></div>
-                </div>                
+                </div>                				
+				<?php echo $this->element('adminfields',array('currentModel' => $ocorrencia['Ocorrencia'])); ?>				
             </div>
         </div>
     </div>
 </div>
-<?php echo $this->element('adminfields',array('currentModel' => $ocorrencia['Ocorrencia'])); ?>
 <!-- SALPLUS | Copyright: 2013 Smartbyte - Luis E. S. Dias | Contato: smartbyte.systems@gmail.com  -->
