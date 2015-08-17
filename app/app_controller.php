@@ -84,8 +84,8 @@
     }
 
     function view($id = null) {
-        if (!$id) {
-            $this->Session->setFlash(__($this->name . ' Inválido(a).', true),'default',array('class'=>'error-msg'));
+        if (!$id) {				
+            $this->Session->setFlash(__($this->name . ' Inválido(a).', true),'alert-box',array('class'=>'alert-danger'));
             $this->redirect(array('action'=>'index'));
         }
         $this->setRelated('view');
@@ -97,7 +97,7 @@
     }
     function edit($id = null) {
         if (!$id && empty($this->data)) {
-            $this->_flash(__($this->name . ' Inválido(a).', true),'error',array('class'=>'error-msg'));                        
+            $this->_flash(__($this->name . ' Inválido(a).', true),'alert-box',array('class'=>'alert-danger'));                        
             $this->redirect(array('action'=>'index'));
         }
         $this->form($id);
@@ -109,13 +109,13 @@
             $this->{$this->modelClass}->create();
             $this->data[$this->singularName]['modified_by'] = $this->Auth->user('id');
             if ($this->{$this->modelClass}->save($this->data)) {
-                 $this->Session->setFlash(__($this->ptSingularName . ' gravado(a) com sucesso', true),'default',array('class'=>'success-msg')); 
+                 $this->Session->setFlash(__($this->ptSingularName . ' gravado(a) com sucesso', true),'alert-box',array('class'=>'alert-success')); 
                  // se existe o parametro fk como campo hidden no form entao redirecionar para index com fk
                  if ( isset($this->data[$this->modelClass]['fk']))
                       $this->redirect(array('action'=>'index/fk:'.$this->data[$this->singularName]['fk']));
                  $this->redirect(array('action'=>'index'));
             } else {
-                 $this->Session->setFlash(__($this->ptSingularName . ' não pode ser gravado(a). Por favor, tente novamente.', true),'default',array('class'=>'error-msg'));
+                 $this->Session->setFlash(__($this->ptSingularName . ' não pode ser gravado(a). Por favor, tente novamente.', true),'alert-box',array('class'=>'alert-danger'));
             }
         } else {
             if ( $this->params['action'] == 'add' ) {
@@ -139,19 +139,19 @@
      */
     function delete($id = null) {
         if (!$id) {
-               $this->Session->setFlash(__($this->ptSingularName . ' Inválido(a).', true),'default',array('class'=>'error-msg'));
+               $this->Session->setFlash(__($this->ptSingularName . ' Inválido(a).', true),'alert-box',array('class'=>'alert-danger'));
                if ( isset($this->passedArgs['fk']))
                     $this->redirect(array('action'=>'index/fk:'.$this->passedArgs['fk']));               
                $this->redirect(array('action'=>'index'));
         }
         if ($this->{$this->modelClass}->delete($id)) {
-               $this->Session->setFlash(__($this->ptSingularName . '  excluído(a)', true),'default',array('class'=>'success-msg'));
+               $this->Session->setFlash(__($this->ptSingularName . '  excluído(a)', true),'alert-box',array('class'=>'alert-success'));
                if ( isset($this->passedArgs['fk']))
                     $this->redirect(array('action'=>'index/fk:'.$this->passedArgs['fk']));               
                $this->redirect(array('action'=>'index'));
         } 
         // só funciona com debug=0 no core.php senao da erro de "Cannot modify header information"
-        $this->Session->setFlash(__("Existem registros relacionados. Não posso excluir",true),'default',array('class'=>'error-msg'));
+        $this->Session->setFlash(__("Existem registros relacionados. Não posso excluir",true),'alert-box',array('class'=>'alert-danger'));
        if ( isset($this->passedArgs['fk']))
             $this->redirect(array('action'=>'index/fk:'.$this->passedArgs['fk']));        
         $this->redirect(array('action'=>'index'));	       
@@ -182,7 +182,7 @@
         );
         
         if ( (in_array($this->name,$adminControllers)) && ( $this->Auth->user('perfil') != 'admin' ) && ($this->action!='logout')) {
-            $this->Session->setFlash(__($msg, true),'default',array('class'=>'error-msg'));
+            $this->Session->setFlash(__($msg, true),'alert-box',array('class'=>'alert-danger'));
             return false;   
         }            
         
