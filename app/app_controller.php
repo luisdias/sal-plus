@@ -24,8 +24,8 @@
     function beforeFilter() {
             $this->Auth->userModel = 'Usuario';
             $this->Auth->fields = array( 'username' => 'login','password' => 'senha');
-            $this->Auth->loginAction=array('controller'=>'usuarios','action'=>'login');
-            $this->Auth->loginRedirect=array('controller'=>'licitacoes','action'=>'index');
+            $this->Auth->loginAction=array('controller'=>'usuarios','action'=>'login','plugin'=>null);
+            $this->Auth->loginRedirect=array('controller'=>'licitacoes','action'=>'index','plugin'=>null);
             $this->Auth->logoutRedirect=array('controller'=>'usuarios','action'=>'login','plugin'=>null);
             $this->Auth->loginError=__('Login ou senha inválido',true);     
             $this->Auth->authError=__('Sem permissão de acesso.',true); 
