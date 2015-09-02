@@ -11,7 +11,7 @@
                     <label class="col-sm-2">Descrição</label>
                     <div class="col-sm-10"><?php echo $garantia['Garantia']['title']; ?></div>
                 </div>                
-                <?php echo $this->element('adminfields_td',array('currentModel' => $garantia['Garantia'])); ?>  
+                <?php echo $this->element('adminfields',array('currentModel' => $garantia['Garantia'])); ?>  
             </div>
         </div>
     </div>
