@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <?php foreach ($currentModel['Contrato'] as $contrato): ?>
-                <tr<?php echo $class;?>>
+                <tr>
                     <td data-title="Situação"><?php echo $situacoes[$contrato['situacao_id']];?></td>
                     <td data-title="Número"><?php echo $contrato['numero'];?></td>
                     <td data-title="Início"><?php echo $contrato['dt_inicio'];?></td>
