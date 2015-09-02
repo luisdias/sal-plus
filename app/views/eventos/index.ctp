@@ -1,8 +1,14 @@
 <div id="center-column">
 <div class="top-bar">
+    <h4><i class="fa fa-angle-right"></i> Eventos
+    <?php 
+    if ( isset($this->passedArgs['fk']) )
+        echo ' da licitação '. $licitacoes[$this->passedArgs['fk']];
+    ?>        
     <?php 
     echo $this->Html->link(__('Novo', true), array('action' => 'add', 'fk'=>(isset($this->passedArgs['fk']) ? $this->passedArgs['fk'] : null)), array('class'=>'btn btn-primary')); 
     ?>
+	</h4>
 </div> 
 <div class="filter-form">
 <?php
@@ -24,12 +30,6 @@
     <div class="row mt">
     <div class="col-lg-12">
     <div class="content-panel">
-    <h4><i class="fa fa-angle-right"></i> Eventos
-    <?php 
-    if ( isset($this->passedArgs['fk']) )
-        echo ' da licitação '. $licitacoes[$this->passedArgs['fk']];
-    ?>        
-    </h4>
     <section id="unseen">     
     <table class="table table-bordered table-striped table-advance table-hover">
         <tr>

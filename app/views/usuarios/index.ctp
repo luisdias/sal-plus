@@ -1,8 +1,10 @@
 <div class="top-bar">
+	<h4><i class="fa fa-angle-right"></i> Usuários
     <?php 
     if ( $this->action == 'index' || $this->action == 'find' )
         echo $this->Html->link(__('Novo', true), array('action' => 'add'), array('class'=>'btn btn-primary')); 
-    ?>   
+    ?>
+	</h4>	
 </div> 
 <div class="filter-form">
 <?php
@@ -22,7 +24,7 @@
     <div class="row mt">
     <div class="col-lg-12">
     <div class="content-panel">
-    <h4><i class="fa fa-angle-right"></i> Usuários</h4>
+    
     <section id="unseen">     
         <table class="table table-bordered table-striped table-advance table-hover">        
         <tr>            

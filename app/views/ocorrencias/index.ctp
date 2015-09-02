@@ -1,12 +1,18 @@
 <div id="center-column">
     <div class="top-bar">
+        <h4><i class="fa fa-angle-right"></i> Ocorrências
+        <?php 
+        if ( isset($this->passedArgs['fk']) )
+            echo ' do contrato ' . $contratos[$this->passedArgs['fk']];
+        ?>
         <?php 
         if ( isset($this->passedArgs['fk']) ) {
             echo $this->Html->link(__('Novo', true), array('action' => 'add', 'fk'=>$this->passedArgs['fk']), array('class'=>'btn btn-primary'));
         } else {
             echo $this->Html->link(__('Novo', true), array('action' => 'add'), array('class'=>'btn btn-primary'));
         }
-        ?>           
+        ?>
+		</h4>
     </div> 
     <div class="filter-form">
     <?php
@@ -28,12 +34,7 @@
         <div class="row mt">
         <div class="col-lg-12">
         <div class="content-panel">
-        <h4><i class="fa fa-angle-right"></i> Ocorrências
-        <?php 
-        if ( isset($this->passedArgs['fk']) )
-            echo ' do contrato ' . $contratos[$this->passedArgs['fk']];
-        ?>       
-        </h4>
+
         <section id="unseen">     
         <table class="table table-bordered table-striped table-advance table-hover">
             <tr>
