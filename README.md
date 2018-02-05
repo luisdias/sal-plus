@@ -2,7 +2,7 @@
 
 ## Sistema para empresas privadas que participam de licitações públicas no Brasil
 
-**Atenção! Existem pessoas que estão vendendo o SAL PLUS na internet se aproveitando da licença MIT. Eu não faço ideia se estas pessoas fizeram alguma modificação no sistema que justifique a cobrança, mas deixo claro que não ofereço suporte para estes casos. O projeto original do SAL PLUS oferece o software gratuitamente. Caso existam necessidades específicas que não foram atendidas pelo sistema, entre em contato para solicitar orçamento para as modificações. ~ Luís Dias
+**Atenção!** Existem pessoas que estão vendendo o SAL PLUS na internet se aproveitando da licença MIT. Eu não faço ideia se estas pessoas fizeram alguma modificação no sistema que justifique a cobrança, mas deixo claro que não ofereço suporte para estes casos. O projeto original do SAL PLUS oferece o software gratuitamente. Caso existam necessidades específicas que não foram atendidas pelo sistema, entre em contato para solicitar orçamento para as modificações. ~ Luís Dias
 
 **Changelog da versão 2.1**  
 * enhancement: Novo design responsive com bootstrap  
